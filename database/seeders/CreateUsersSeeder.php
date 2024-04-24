@@ -17,28 +17,38 @@ class CreateUsersSeeder extends Seeder
     {
         $users = [
             [
-                'email' => 'admin@gmail.com',
-                'level' => 1,
+                'nama' => 'GPM',
+                'email' => 'gpm@gmail.com',
+                'id_role' => 1,
+                'noHP' => '089655313595',
                 'password' => Hash::make('12345')
             ],
             [
+                'nama' => 'Dekan',
                 'email' => 'dekan@gmail.com',
-                'level' => 2,
+                'id_role' => 2,
+                'noHP' => '089655313595',
                 'password' => Hash::make('12345')
             ],
             [
+                'nama' => 'Produ',
                 'email' => 'prodi@gmail.com',
-                'level' => 3,
+                'id_role' => 3,
+                'noHP' => '089655313595',
                 'password' => Hash::make('12345')
             ],
             [
+                'nama' => 'Alumni',
                 'email' => 'alumni@gmail.com',
-                'level' => 4,
+                'id_role' => 4,
+                'noHP' => '089655313595',
                 'password' => Hash::make('12345')
             ],
             [
-                'email' => 'mahasiswa@gmail.com',
-                'level' => 5,
+                'nama' => 'User',
+                'email' => 'user@gmail.com',
+                'id_role' => 5,
+                'noHP' => '089655313595',
                 'password' => Hash::make('12345')
             ]
         ];
