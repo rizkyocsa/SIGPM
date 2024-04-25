@@ -146,7 +146,7 @@
                                                     <li><a href="#">Berita</a></li>
                                                     <li><a href="#">Akreditasi</a></li>
                                                     <li><a href="#">Master Dokumen</a></li>
-                                                    @if ($user->id_role == 1 || $user->id_role == 4)
+                                                    @if ($user->id_role == 1 || $user->id_role == 3)
                                                     <li class="menu-item-has-children"><a href="#">Master Data</a>
                                                         <ul class="sub-menu">
                                                             <li>
