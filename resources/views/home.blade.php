@@ -150,20 +150,21 @@
                                                     <li class="menu-item-has-children"><a href="#">Master Data</a>
                                                         <ul class="sub-menu">
                                                             <li>
-                                                                <a href="blog.html">Kelola Profile</a>
+                                                                <a href="blog.html">Kelola Dokumen</a>
                                                             </li>
                                                             <li>
-                                                                <a href="blog.html">Kelola Berita</a>
+                                                                <a href="blog.html">Kelola Survey</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="blog.html">Kelola Akreditasi</a>
                                                             </li>
                                                             @if ($user->id_role == 1)
+                                                                
                                                                 <li>
-                                                                    <a href="blog.html">Kelola Dokumen</a>
+                                                                    <a href="blog.html">Kelola Profile</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="blog.html">Kelola Survey</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="blog.html">Kelola Akreditasi</a>
+                                                                    <a href="blog.html">Kelola Berita</a>
                                                                 </li>
                                                             @endif
                                                         </ul>
