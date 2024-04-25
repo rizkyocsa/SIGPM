@@ -31,26 +31,19 @@ class CreateUsersSeeder extends Seeder
                 'password' => Hash::make('12345')
             ],
             [
-                'nama' => 'Produ',
+                'nama' => 'Wakil Dekan 1',
+                'email' => 'wakil.dekan.1@gmail.com',
+                'id_role' => 2,
+                'noHP' => '089655313595',
+                'password' => Hash::make('12345')
+            ],
+            [
+                'nama' => 'Prodi',
                 'email' => 'prodi@gmail.com',
                 'id_role' => 3,
                 'noHP' => '089655313595',
                 'password' => Hash::make('12345')
             ],
-            [
-                'nama' => 'Alumni',
-                'email' => 'alumni@gmail.com',
-                'id_role' => 4,
-                'noHP' => '089655313595',
-                'password' => Hash::make('12345')
-            ],
-            [
-                'nama' => 'User',
-                'email' => 'user@gmail.com',
-                'id_role' => 5,
-                'noHP' => '089655313595',
-                'password' => Hash::make('12345')
-            ]
         ];
 
         foreach ($users as $key => $user){
