@@ -24,12 +24,6 @@ class CreateRolesSeeder extends Seeder
             [
                 'nama' => 'Prodi',
             ],
-            [
-                'nama' => 'Alumni',
-            ],
-            [
-                'nama' => 'User',
-            ]
         ];
 
         foreach ($roles as $key => $role){

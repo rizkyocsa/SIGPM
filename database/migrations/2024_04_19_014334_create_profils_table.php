@@ -17,7 +17,7 @@ class CreateProfilsTable extends Migration
             $table->id();
             $table->string('sub-menu');
             $table->string('judul');
-            $table->string('profil');
+            $table->string('content');
             $table->timestamps();
         });
     }
