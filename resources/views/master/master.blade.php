@@ -37,7 +37,7 @@
 </head>
 
 <body class="body-gray-bg">
-
+    
     <!--Start Preloader -->
     <div id="preloader" class="alt">
         <div id="loading-center">
@@ -311,9 +311,11 @@
     <script src="{{ asset('assets/js/main.js')}}"></script>
 
     <script src="https://cdn.datatables.net/2.0.5/js/dataTables.min.js"></script>
-
+    
+    @include('sweetalert::alert')
+    
     @yield('js')
-
+    
     <script>
         // let table = new DataTable('#myTable', {
         //     searching: false,
