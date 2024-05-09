@@ -15,7 +15,8 @@ class CreateMasterDokumensTable extends Migration
     {
         Schema::create('master_dokumens', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
+            $table->string('kategori');
+            $table->string('sub_kategori');
             $table->string('nama_dokumen');
             $table->string('tautan');
             $table->timestamps();

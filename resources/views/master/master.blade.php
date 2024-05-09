@@ -162,7 +162,19 @@
                                                     </li>
                                                     <li><a href="#">Berita</a></li>
                                                     <li><a href="#">Akreditasi</a></li>
-                                                    <li><a href="#">Master Dokumen</a></li>
+                                                    <li class="menu-item-has-children"><a href="#">Master Data</a>
+                                                        <ul class="sub-menu">
+                                                            <li>
+                                                                <a href="{{ route('dokumen.get_list', 'Dokumen')  }}">Dokumen</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{ route('dokumen.get_list', 'Kegiatan Mutu')  }}">Kegiatan Mutu</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{ route('dokumen.get_list', 'Laporan')  }}">Laporan</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
                                                     @guest
 
                                                     @else
@@ -171,7 +183,7 @@
                                                     <li class="menu-item-has-children"><a href="#">Master Data</a>
                                                         <ul class="sub-menu">
                                                             <li>
-                                                                <a href="blog.html">Kelola Dokumen</a>
+                                                                <a href="{{ route('dokumen.index') }}">Kelola Dokumen</a>
                                                             </li>
                                                             <li>
                                                                 <a href="{{ route('survey.index') }}">Kelola Survey</a>

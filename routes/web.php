@@ -34,3 +34,13 @@ Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])->
 Route::get('/profil/edit/{id}', [App\Http\Controllers\ProfilController::class, 'edit'])->name('profil.edit');
 Route::post('/profil/update/{id}', [App\Http\Controllers\ProfilController::class, 'update'])->name('profil.update');
 Route::get('/profil/{menu}', [App\Http\Controllers\ProfilController::class, 'getDetail'])->name('profil.detail');
+
+Route::get('/dokumen', [App\Http\Controllers\DokumenController::class, 'index'])->name('dokumen.index');
+Route::get('/dokumen/create', [App\Http\Controllers\DokumenController::class, 'create'])->name('dokumen.create');
+Route::post('/dokumen/store', [App\Http\Controllers\DokumenController::class, 'store'])->name('dokumen.store');
+Route::get('/dokumen/edit/{id}', [App\Http\Controllers\DokumenController::class, 'edit'])->name('dokumen.edit');
+Route::post('/dokumen/update/{id}', [App\Http\Controllers\DokumenController::class, 'update'])->name('dokumen.update');
+Route::delete('/dokumen/delete/{id}', [App\Http\Controllers\DokumenController::class, 'delete'])->name('dokumen.delete');
+Route::get('/dokumen/get-list/{kategori}', [App\Http\Controllers\DokumenController::class, 'get_list'])->name('dokumen.get_list');
+
+
