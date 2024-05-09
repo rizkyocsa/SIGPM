@@ -70,12 +70,13 @@ class SurveyController extends Controller
         if($update){
             $user = Auth::user();
             $survey = Survey::all();
+            Alert::success('Berhasil', 'Berhasil Ubah Data');
             return redirect()->route('survey.index')->with([
                 'user' => $user,
                 'survey' => $survey
             ]);
         }else{
-
+            Alert::error('Gagal', 'Gagal Ubah Data');
         }
     }
 
