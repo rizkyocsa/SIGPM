@@ -29,3 +29,8 @@ Route::get('/survey/edit/{id}', [App\Http\Controllers\SurveyController::class, '
 Route::post('/survey/update/{id}', [App\Http\Controllers\SurveyController::class, 'update'])->name('survey.update');
 Route::delete('/survey/delete/{id}', [App\Http\Controllers\SurveyController::class, 'delete'])->name('survey.delete');
 Route::get('/survey/get-list', [App\Http\Controllers\SurveyController::class, 'get_list'])->name('survey.get_list');
+
+Route::get('/profil', [App\Http\Controllers\ProfilController::class, 'index'])->name('profil.index');
+Route::get('/profil/edit/{id}', [App\Http\Controllers\ProfilController::class, 'edit'])->name('profil.edit');
+Route::post('/profil/update/{id}', [App\Http\Controllers\ProfilController::class, 'update'])->name('profil.update');
+Route::get('/profil/{menu}', [App\Http\Controllers\ProfilController::class, 'getDetail'])->name('profil.detail');

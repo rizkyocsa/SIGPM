@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CreateRolesSeeder::class,
             CreateUsersSeeder::class,
-            CreateSurveysSeeder::class
+            CreateSurveysSeeder::class,
+            CreateProfilesSeeder::class
         ]);
     }
 }

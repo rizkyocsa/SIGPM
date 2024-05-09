@@ -18,7 +18,7 @@ class SurveyController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $survey = Survey::paginate(10); 
+        $survey = Survey::paginate(5); 
 
         $title = 'Hapus Data!';
         $text = "Are you sure you want to delete?";

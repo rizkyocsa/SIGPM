@@ -144,19 +144,19 @@
                                                     <li class="menu-item-has-children"><a href="#">Profile</a>
                                                         <ul class="sub-menu">
                                                             <li>
-                                                                <a href="services.html">Profil GPM FT Unsur</a>
+                                                                <a href="{{ route('profil.detail', 'Profil GPM FT Unsur')  }}">Profil GPM FT Unsur</a>
                                                             </li>
                                                             <li>
-                                                                <a href="app-development.html">Visi Misi</a>
+                                                                <a href="{{ route('profil.detail', 'Visi Misi')  }}">Visi Misi</a>
                                                             </li>
                                                             <li>
-                                                                <a href="uiux-design.html">Organisasi dan Staff GPM</a>
+                                                                <a href="{{ route('profil.detail', 'Organisasi dan Staff GPM')  }}">Organisasi dan Staff GPM</a>
                                                             </li>
                                                             <li>
-                                                                <a href="web-development.html">Tugas Pokok dan Fungsi</a>
+                                                                <a href="{{ route('profil.detail', 'Tugas Pokok dan Fungsi')  }}">Tugas Pokok dan Fungsi</a>
                                                             </li>
                                                             <li>    
-                                                                <a href="digital-marketing.html">Program Kerja</a>
+                                                                <a href="{{ route('profil.detail', 'Program Kerja')  }}">Program Kerja</a>
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -182,7 +182,7 @@
                                                             @if ($user->id_role == 1)
                                                                 
                                                                 <li>
-                                                                    <a href="blog.html">Kelola Profile</a>
+                                                                    <a href="{{ route('profil.index') }}">Kelola Profile</a>
                                                                 </li>
                                                                 <li>
                                                                     <a href="blog.html">Kelola Berita</a>
