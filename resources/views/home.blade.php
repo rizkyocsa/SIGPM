@@ -171,183 +171,42 @@
                 <h2>Berita</h2>
             </div>
             <div class="row">
-                <!--Start Single Blog One-->
+                @foreach($berita as $item)
                 <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay=".3s">
                     <div class="blog-one__single">
                         <div class="blog-one__single-img-box">
-                            <img src="assets/img/blog/blog-one-1.jpg" alt="#">
+                            <!-- <img src="assets/img/blog/blog-one-1.jpg" alt="#"> -->
+                            @if($item->header !== null)
+                                <img src="{{ asset('storage/header_berita/'.$item->header) }}" alt="Gambar" style="max-width: 410px; max-height: 330px; object-fit: contain;">
+                            @else
+                                [Gambar Tidak Ada]
+                            @endif
                         </div>
                         <div class="blog-one__single-content">
                             <div class="meta-box">
                                 <ul class="meta-info">
-                                    <li>
+                                    <!-- <li>
                                         <div class="line"></div>
-                                        <p><a href="#">Design</a></p>
-                                    </li>
+                                        <p><a href="#">{{ $item->judul }}</a></p>
+                                    </li> -->
                                     <li>
                                         <div class="icon">
                                             <span class="icon-calendar"></span>
                                         </div>
-                                        <p><a href="#">Sep 30, 2022</a></p>
+                                        <p><a href="#">{{ $item->created_at_formatted}}</a></p>
                                     </li>
                                 </ul>
                             </div>
                             <div class="blog-one__single-content-meta-box-title-box">
-                                <h3><a href="blog-details.html">Sharing You and Your Company<br>with The World</a>
+                                <h3><a href="blog-details.html">{{ $item->judul }}</a>
                                 </h3>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--End Single Blog One-->
-                <!--Start Single Blog One-->
-                <div class="col-xl-4 col-lg-4 wow fadeInDown" data-wow-delay=".3s">
-                    <div class="blog-one__single">
-                        <div class="blog-one__single-img-box">
-                            <img src="assets/img/blog/blog-one-2.jpg" alt="#">
-                        </div>
-                        <div class="blog-one__single-content">
-                            <div class="meta-box">
-                                <ul class="meta-info">
-                                    <li>
-                                        <div class="line"></div>
-                                        <p><a href="#">Development</a></p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-calendar"></span>
-                                        </div>
-                                        <p><a href="#">Sep 30, 2022</a></p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="blog-one__single-content-meta-box-title-box">
-                                <h3><a href="blog-details.html">I Will Deliver The Digital Results<br>As You
-                                        Desire</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Single Blog One-->
-                <!--Start Single Blog One-->
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="blog-one__single">
-                        <div class="blog-one__single-img-box">
-                            <img src="assets/img/blog/blog-one-3.jpg" alt="#">
-                        </div>
-                        <div class="blog-one__single-content">
-                            <div class="meta-box">
-                                <ul class="meta-info">
-                                    <li>
-                                        <div class="line"></div>
-                                        <p><a href="#">Design</a></p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-calendar"></span>
-                                        </div>
-                                        <p><a href="#">Sep 30, 2022</a></p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="blog-one__single-content-meta-box-title-box">
-                                <h3><a href="blog-details.html">Will Reach Your Audience and<br>Convert Your
-                                        Leads</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Single Blog One-->
+                @endforeach
             </div>
-            <div class="row">
-                <!--Start Single Blog One-->
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="blog-one__single">
-                        <div class="blog-one__single-img-box">
-                            <img src="assets/img/blog/blog-one-1.jpg" alt="#">
-                        </div>
-                        <div class="blog-one__single-content">
-                            <div class="meta-box">
-                                <ul class="meta-info">
-                                    <li>
-                                        <div class="line"></div>
-                                        <p><a href="#">Design</a></p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-calendar"></span>
-                                        </div>
-                                        <p><a href="#">Sep 30, 2022</a></p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="blog-one__single-content-meta-box-title-box">
-                                <h3><a href="blog-details.html">Sharing You and Your Company<br>with The World</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Single Blog One-->
-                <!--Start Single Blog One-->
-                <div class="col-xl-4 col-lg-4 wow fadeInDown" data-wow-delay=".3s">
-                    <div class="blog-one__single">
-                        <div class="blog-one__single-img-box">
-                            <img src="assets/img/blog/blog-one-2.jpg" alt="#">
-                        </div>
-                        <div class="blog-one__single-content">
-                            <div class="meta-box">
-                                <ul class="meta-info">
-                                    <li>
-                                        <div class="line"></div>
-                                        <p><a href="#">Development</a></p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-calendar"></span>
-                                        </div>
-                                        <p><a href="#">Sep 30, 2022</a></p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="blog-one__single-content-meta-box-title-box">
-                                <h3><a href="blog-details.html">I Will Deliver The Digital Results<br>As You
-                                        Desire</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Single Blog One-->
-                <!--Start Single Blog One-->
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="blog-one__single">
-                        <div class="blog-one__single-img-box">
-                            <img src="assets/img/blog/blog-one-3.jpg" alt="#">
-                        </div>
-                        <div class="blog-one__single-content">
-                            <div class="meta-box">
-                                <ul class="meta-info">
-                                    <li>
-                                        <div class="line"></div>
-                                        <p><a href="#">Design</a></p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-calendar"></span>
-                                        </div>
-                                        <p><a href="#">Sep 30, 2022</a></p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="blog-one__single-content-meta-box-title-box">
-                                <h3><a href="blog-details.html">Will Reach Your Audience and<br>Convert Your
-                                        Leads</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--End Single Blog One-->
-            </div>
+            
         </div>
     </section>
     <!--End Blog One-->

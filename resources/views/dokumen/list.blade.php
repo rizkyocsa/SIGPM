@@ -16,11 +16,17 @@
                                     <ul>
                                         @foreach($subRecords as $record)
                                         <li style="margin-left: 20px;">
-                                            @if ($user->id_role == 2)
-                                                <a href="{{ $record->tautan }}" target="_blank">{{ $record->nama_dokumen }}</a>
-                                            @else
+                                            @guest
                                                 {{ $record->nama_dokumen }} 
-                                            @endif
+                                            @else
+
+                                                @if($user->id_role == 2)
+                                                    <a href="{{ $record->tautan }}" target="_blank">{{ $record->nama_dokumen }}</a>
+                                                @else
+                                                    {{ $record->nama_dokumen }} 
+                                                @endif
+                                            @endguest
+
                                             </li>
                                         @endforeach
                                     </ul>

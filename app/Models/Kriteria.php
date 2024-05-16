@@ -5,13 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Berita extends Model
+class Kriteria extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'header',
-        'judul',
-        'content',
-    ];
 }

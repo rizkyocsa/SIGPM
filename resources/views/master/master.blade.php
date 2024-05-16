@@ -137,9 +137,9 @@
                                             <div class="navbar-wrap main-menu">
                                                 <ul class="navigation">
                                                     @guest
-                                                    <li><a href="">Beranda</a></li>
+                                                    <li><a href="{{ route('home')}}">Beranda</a></li>
                                                     @else
-                                                    <li><a href="home">Beranda</a></li>
+                                                    <li><a href="{{ route('home')}}">Beranda</a></li>
                                                     @endguest
                                                     <li class="menu-item-has-children"><a href="#">Profile</a>
                                                         <ul class="sub-menu">
@@ -160,7 +160,7 @@
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li><a href="#">Berita</a></li>
+                                                    <li><a href="{{ route('berita.list') }}">Berita</a></li>
                                                     <li><a href="#">Akreditasi</a></li>
                                                     <li class="menu-item-has-children"><a href="#">Master Data</a>
                                                         <ul class="sub-menu">
@@ -180,7 +180,7 @@
                                                     @else
 
                                                     @if ($user->id_role == 1 || $user->id_role == 3)
-                                                    <li class="menu-item-has-children"><a href="#">Master Data</a>
+                                                    <li class="menu-item-has-children"><a href="#">Master</a>
                                                         <ul class="sub-menu">
                                                             <li>
                                                                 <a href="{{ route('dokumen.index') }}">Kelola Dokumen</a>
@@ -189,7 +189,7 @@
                                                                 <a href="{{ route('survey.index') }}">Kelola Survey</a>
                                                             </li>
                                                             <li>
-                                                                <a href="blog.html">Kelola Akreditasi</a>
+                                                                <a href="{{ route('akreditasi.index') }}">Kelola Akreditasi</a>
                                                             </li>
                                                             @if ($user->id_role == 1)
                                                                 
@@ -197,7 +197,7 @@
                                                                     <a href="{{ route('profil.index') }}">Kelola Profile</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="blog.html">Kelola Berita</a>
+                                                                    <a href="{{ route('berita.index') }}">Kelola Berita</a>
                                                                 </li>
                                                             @endif
                                                         </ul>

@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             CreateRolesSeeder::class,
             CreateUsersSeeder::class,
             CreateSurveysSeeder::class,
-            CreateProfilesSeeder::class
+            CreateProfilesSeeder::class,
+            // CreateBeritaSeeder::class,
         ]);
     }
 }

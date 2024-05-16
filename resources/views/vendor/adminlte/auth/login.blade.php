@@ -85,7 +85,7 @@
                 </button>
             </div>
             <div class="col-4">
-                <a href="{{ route('welcome') }}" class="btn btn-block btn-flat btn-danger">
+                <a href="{{ route('home') }}" class="btn btn-block btn-flat btn-danger">
                     {{-- <span class="fas fa-sign-in-alt"></span> --}}
                     Batal
                 </a>
