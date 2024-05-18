@@ -41,9 +41,8 @@ class BeritaController extends Controller
             );
             $name = $filename;
         }
-        // dd($req->header);
+        
         $validate = $req->validated();
-        // dd($validate['header']);
         $validate['header'] = $name;
 
         $create = Berita::create($validate);
