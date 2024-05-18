@@ -46,12 +46,16 @@ Route::get('/dokumen/edit/{id}', [App\Http\Controllers\DokumenController::class,
 Route::post('/dokumen/update/{id}', [App\Http\Controllers\DokumenController::class, 'update'])->name('dokumen.update');
 Route::delete('/dokumen/delete/{id}', [App\Http\Controllers\DokumenController::class, 'delete'])->name('dokumen.delete');
 
-Route::get('/akreditasi', [App\Http\Controllers\AkreditasiController::class, 'index'])->name('akreditasi.index');
-Route::get('/akreditasi/create', [App\Http\Controllers\AkreditasiController::class, 'create'])->name('akreditasi.create');
+Route::get('/akreditasi/index/{ketegori}', [App\Http\Controllers\AkreditasiController::class, 'index'])->name('akreditasi.index');
+Route::get('/akreditasi/my-list', [App\Http\Controllers\AkreditasiController::class, 'list'])->name('akreditasi.list');
+Route::get('/akreditasi/my-list-gpm', [App\Http\Controllers\AkreditasiController::class, 'listGPM'])->name('akreditasi.list_gpm');
+Route::get('/akreditasi/{ketegori}/create', [App\Http\Controllers\AkreditasiController::class, 'create'])->name('akreditasi.create');
 Route::post('/akreditasi/store', [App\Http\Controllers\AkreditasiController::class, 'store'])->name('akreditasi.store');
 Route::get('/akreditasi/edit/{id}', [App\Http\Controllers\AkreditasiController::class, 'edit'])->name('akreditasi.edit');
 Route::post('/akreditasi/update/{id}', [App\Http\Controllers\AkreditasiController::class, 'update'])->name('akreditasi.update');
 Route::delete('/akreditasi/delete/{id}', [App\Http\Controllers\AkreditasiController::class, 'delete'])->name('akreditasi.delete');
+Route::get('/akreditasi/{kategori}/detail', [App\Http\Controllers\AkreditasiController::class, 'detail'])->name('akreditasi.detail');
+Route::get('/akreditasi/highest-no-urut/{kategori}/{elemen}', [App\Http\Controllers\AkreditasiController::class, 'getHighestNoUrut']);
 
 Route::get('/berita', [App\Http\Controllers\BeritaController::class, 'index'])->name('berita.index');
 Route::get('/berita/create', [App\Http\Controllers\BeritaController::class, 'create'])->name('berita.create');

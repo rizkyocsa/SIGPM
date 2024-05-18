@@ -121,4 +121,11 @@ class BeritaController extends Controller
         });
         return view('berita.list', compact('beritaPaginated', 'user'));
     }
+
+    public function detail($id){
+        $user = Auth::user();
+        $berita = Berita::findOrFail($id);
+        $berita->created_at_formatted = $berita->created_at->format('Y-m-d');          
+        return view('berita.detail', compact('berita', 'user'));
+    }
 }

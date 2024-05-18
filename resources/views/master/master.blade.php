@@ -161,7 +161,7 @@
                                                         </ul>
                                                     </li>
                                                     <li><a href="{{ route('berita.list') }}">Berita</a></li>
-                                                    <li><a href="#">Akreditasi</a></li>
+                                                    <li><a href="{{ route('akreditasi.list') }}">Akreditasi</a></li>
                                                     <li class="menu-item-has-children"><a href="#">Master Data</a>
                                                         <ul class="sub-menu">
                                                             <li>
@@ -189,7 +189,7 @@
                                                                 <a href="{{ route('survey.index') }}">Kelola Survey</a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{ route('akreditasi.index') }}">Kelola Akreditasi</a>
+                                                                <a href="{{ route('akreditasi.list_gpm') }}">Kelola Akreditasi</a>
                                                             </li>
                                                             @if ($user->id_role == 1)
                                                                 
@@ -321,20 +321,45 @@
     <script src="{{ asset('assets/vendor/odometer/odometer.min.js')}}"></script>
     <script src="{{ asset('assets/vendor/progress-bar/knob.js')}}"></script>
     <script src="{{ asset('assets/js/main.js')}}"></script>
-
-    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.min.js"></script>
     
     @include('sweetalert::alert')
     
     @yield('js')
     
     <script>
-        // let table = new DataTable('#myTable', {
-        //     searching: false,
-        //     ordering:  false,
-        //     paging: false
-        // });
 
+        $(document).ready(function() {
+            $('#elemenSelect').on('change', function() {
+                var elemen = $(this).val();
+                var kategori = "{{ $kategori ?? 'default_value' }}";
+
+                if (elemen) {
+                    $.ajax({
+                        url: `/akreditasi/highest-no-urut/${kategori}/${elemen}`,
+                        type: 'GET',
+                        success: function(data) {
+                            console.log('Fetched data:', data);
+                            var noUrutField = $('#noUrut');
+                            noUrutField.prop('disabled', true);
+                            noUrutField.val(data.no_urut ? data.no_urut + 1 : 1);
+                            var noUrutFieldValue = $('#noUrutValue');
+                            noUrutFieldValue.prop('disabled', false);
+                            noUrutFieldValue.val(data.no_urut ? data.no_urut + 1 : 1);
+                        },
+                        error: function(error) {
+                            console.error('Error fetching no_urut:', error);
+                        }
+                    });
+                } else {
+                    var noUrutField = $('#noUrut');
+                    noUrutField.val('');
+                    noUrutField.prop('disabled', true);
+                }
+            });
+        });
+    </script>
+
+    <script>
         $(document).ready(function() {
             $.ajax({
                 url: "{{ route('survey.get_list') }}",

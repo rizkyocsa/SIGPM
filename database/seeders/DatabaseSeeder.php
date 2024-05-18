@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             CreateSurveysSeeder::class,
             CreateProfilesSeeder::class,
             // CreateBeritaSeeder::class,
+            CreateAkreditasiSeeder::class,
         ]);
     }
 }

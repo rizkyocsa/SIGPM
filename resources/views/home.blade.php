@@ -193,12 +193,12 @@
                                         <div class="icon">
                                             <span class="icon-calendar"></span>
                                         </div>
-                                        <p><a href="#">{{ $item->created_at_formatted}}</a></p>
+                                        <p>{{ $item->created_at_formatted}}</p>
                                     </li>
                                 </ul>
                             </div>
                             <div class="blog-one__single-content-meta-box-title-box">
-                                <h3><a href="blog-details.html">{{ $item->judul }}</a>
+                                <h3><a href="{{ route('berita.detail', $item->id) }}">{{ $item->judul }}</a>
                                 </h3>
                             </div>
                         </div>
