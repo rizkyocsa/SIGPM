@@ -125,4 +125,12 @@ class DokumenController extends Controller
         // dd($dokumen);
         return view('dokumen.list', compact('user','dokumen'));
     }
+
+    public function get_list_sub($sub_kategori)
+    {
+        $user = Auth::user();
+        $dokumen = MasterDokumen::where('sub_kategori', $sub_kategori)->get();
+        // dd($dokumen);
+        return view('dokumen.list-sub', compact('user','dokumen', 'sub_kategori'));
+    }
 }

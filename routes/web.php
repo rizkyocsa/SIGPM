@@ -22,6 +22,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 //Universal
 Route::get('/survey/get-list', [App\Http\Controllers\SurveyController::class, 'get_list'])->name('survey.get_list');
 Route::get('/dokumen/get-list/{kategori}', [App\Http\Controllers\DokumenController::class, 'get_list'])->name('dokumen.get_list');
+Route::get('/dokumen/get-list-sub/{sub_kategori}', [App\Http\Controllers\DokumenController::class, 'get_list_sub'])->name('dokumen.get_list_sub');
 
 Auth::routes();
 
