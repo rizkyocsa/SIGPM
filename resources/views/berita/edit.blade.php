@@ -39,7 +39,7 @@
                                                 <div class="contact-page__input-box">
                                                     <div id="editor">{!! $berita->content !!}</div>
                                                 </div>
-                                                <input type="hidden" name="content" id="content">
+                                                <input type="hidden" name="content" id="content" value="{{ $berita->content }}">
                                             </div>
                                         </div>
                                         <div class="row">

@@ -70,9 +70,10 @@ class BeritaController extends Controller
 
     public function update(CreateBeritaRequest $req, $id)
     {
+        // dd($req);
         $validate = $req->validated();
-        
         $berita = Berita::find($id);
+        // dd($berita);
         $update = $berita->update($validate);
 
         if($update){
