@@ -19,14 +19,9 @@
                                         @foreach($subRecords as $record)
                                         <li style="margin-left: 20px;">
                                             @guest
-                                                {{ $record->nama_dokumen }} 
+                                                <a href="{{ $record->tautan_dokumen }}" target="_blank">{{ $record->nama_dokumen }}</a>
                                             @else
-
-                                                @if($user->id_role == 2)
-                                                    <a href="{{ $record->tautan_dokumen }}" target="_blank">{{ $record->nama_dokumen }}</a>
-                                                @else
-                                                    {{ $record->nama_dokumen }} 
-                                                @endif
+                                                <a href="{{ $record->tautan_dokumen }}" target="_blank">{{ $record->nama_dokumen }}</a>
                                             @endguest
 
                                             </li>
