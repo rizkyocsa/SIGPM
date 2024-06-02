@@ -20,7 +20,7 @@
         {{-- Name field --}}
         <div class="input-group mb-3">
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                   value="{{ old('name') }}" placeholder="{{ __('adminlte::adminlte.full_name') }}" autofocus>
+                   value="{{ old('name') }}" placeholder="Nama" autofocus>
 
             <div class="input-group-append">
                 <div class="input-group-text">
@@ -47,6 +47,41 @@
             </div>
 
             @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
+        {{-- Name field --}}
+        <div class="input-group mb-3">
+            <input type="text" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror"
+                   value="{{ old('no_hp') }}" placeholder="No HP" autofocus>
+
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-phone {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+
+            @error('no_hp')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
+        {{-- Email field --}}
+        <div class="input-group mb-3">
+            <select name="role" style="width: 100%;" class="form-control custom-select" id="" required>
+                <option value="">Pilih Role</option>  
+                <option value="1">GPM</option>
+                <option value="2">Dekan</option>
+                <option value="3">Prodi</option>
+                <option value="4">User</option>
+            </select>
+
+            @error('Role')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
