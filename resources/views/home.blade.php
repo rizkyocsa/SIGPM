@@ -37,7 +37,7 @@
 
                 <div class="banner-one__img wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="inner">
-                        <img src="assets/img/slider/banner-one__mian-img.jpg" alt="banner">
+                        <img src="{{ asset('assets/img/resource/slider1.jpg')}}" alt="banner">
                     </div>
                     <div class="banner-one__img-bg"></div>
                 </div>
