@@ -3,16 +3,18 @@
 @section('content')
     <!--Start Banner One-->
     <section class="banner-one">
-        <!-- <div class="sec-title text-center">
-            <div class="sub-title">
-                <h4></h4>
-            </div>
-            <h2>Dokumen SPMI</h2>
-        </div> -->
         <div class="container">
-            <h1 style="text-align: center; padding: 20px;">Sistem Informasi Gugus Penjaminan Mutu</h1>
-            <h1 style="text-align: center; padding: 20px; margin-bottom: 10px;">Fakultas Teknik Universitas Suryakancana</h1>
-            <img src="{{ asset('assets/img/resource/slider1.jpg')}}" alt="banner">
+            <div class="banner-one__inner">
+                <div class="banner-one__content wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="sub-title">
+                        <h5>Sistem Informasi</h5>
+                    </div>
+                    <div class="big-title">
+                        <h2>GUGUS PENJAMIN MUTU <br>FAKULTAS TEKNIK</h2>
+                    </div>
+                </div>
+                <img src="{{ asset('assets/img/resource/slider1.jpg')}}" alt="banner">
+            </div>
         </div>
     </section>
     <!--End Banner One-->
