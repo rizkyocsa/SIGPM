@@ -285,8 +285,7 @@
                 <div class="container">
                     <div class="footer-bottom__inner">
                         <div class="copyright-text text-center">
-                            <p>Copyright © 2024 Diligent by <a href="https://themeforest.net/user/thememx">Thememx.</a>
-                                All Rights Reserved</p>
+                            <p>Copyright © 2024 SI GPM | Universitas Suryakancana </p>
                         </div>
                     </div>
                 </div>

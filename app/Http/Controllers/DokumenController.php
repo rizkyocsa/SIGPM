@@ -23,7 +23,11 @@ class DokumenController extends Controller
             (object)['kategori' => 'Dokumen', 'sub_kategori' => 'Kebijakan SPMI'],
             (object)['kategori' => 'Kegiatan Mutu', 'sub_kategori' => 'Per Tahun'],
             (object)['kategori' => 'Kegiatan Mutu', 'sub_kategori' => 'Per Semester'],
-            (object)['kategori' => 'Laporan', 'sub_kategori' => ''],
+            (object)['kategori' => 'Laporan', 'sub_kategori' => 'Penetapan'],
+            (object)['kategori' => 'Laporan', 'sub_kategori' => 'Pelaksanaan'],
+            (object)['kategori' => 'Laporan', 'sub_kategori' => 'Evaluasi'],
+            (object)['kategori' => 'Laporan', 'sub_kategori' => 'Pengendalian'],
+            (object)['kategori' => 'Laporan', 'sub_kategori' => 'Peningkatan'],
         ];
     }
 

@@ -3,45 +3,16 @@
 @section('content')
     <!--Start Banner One-->
     <section class="banner-one">
-        <div class="banner-one__shape1 float-bob-x">
-            <img src="assets/img/shape/banner-one__shape1.png" alt="#">
-        </div>
-        <div class="banner-one__shape2 rotate-me">
-            <img src="assets/img/shape/banner-one__shape2.png" alt="#">
-        </div>
-        <div class="banner-one__shape3 float-bob-y">
-            <img src="assets/img/shape/banner-one__shape3.png" alt="#">
-        </div>
-        <div class="container">
-            <div class="banner-one__inner">
-                <div class="banner-one__content wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="sub-title">
-                        <h5>Senior Web Developer</h5>
-                    </div>
-                    <div class="big-title">
-                        <h2>Hi I’m Jhon Smith<br>Web Developer</h2>
-                    </div>
-                    <div class="text">
-                        <p>There are many variations of passages of available, but the<br> majority have suffered
-                            randomised words.</p>
-                    </div>
-                    <div class="btn-box">
-                        <a class="thm-btn" href="#">
-                            <span class="txt">
-                                Just Say Hello
-                                <i class="icon-next"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="banner-one__img wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="inner">
-                        <img src="{{ asset('assets/img/resource/slider1.jpg')}}" alt="banner">
-                    </div>
-                    <div class="banner-one__img-bg"></div>
-                </div>
+        <!-- <div class="sec-title text-center">
+            <div class="sub-title">
+                <h4></h4>
             </div>
+            <h2>Dokumen SPMI</h2>
+        </div> -->
+        <div class="container">
+            <h1 style="text-align: center; padding: 20px;">Sistem Informasi Gugus Penjaminan Mutu</h1>
+            <h1 style="text-align: center; padding: 20px; margin-bottom: 10px;">Fakultas Teknik Universitas Suryakancana</h1>
+            <img src="{{ asset('assets/img/resource/slider1.jpg')}}" alt="banner">
         </div>
     </section>
     <!--End Banner One-->
