@@ -66,20 +66,20 @@
                                             <!-- <div class="icon">
                                                 <span class="icon-phone-call"></span>
                                             </div> -->
-                                            <p><a href="tel:1378902167">{{$user->nama}}</a></p>
+                                            <p><a href="#">{{$user->nama}}</a></p>
                                         </li>
                                     @endguest   
                                     <li>
                                         <div class="icon">
                                             <span class="icon-phone-call"></span>
                                         </div>
-                                        <p><a href="tel:1378902167">+1 378 902 167</a></p>
+                                        <p><a href="#">(0263) 283578</a></p>
                                     </li>
                                     <li>
                                         <div class="icon">
                                             <span class="icon-email"></span>
                                         </div>
-                                        <p><a href="mailto:info@example.com">Support@gmail.com</a></p>
+                                        <p><a href="#">info@ftunsur.ac.id</a></p>
                                     </li>
                                 </ul>
                             </div>
@@ -88,25 +88,25 @@
                             <div class="header-social-link-one">
                                 <ul class="clearfix">
                                     <li>
-                                        <a href="#">
+                                        <a href="https://web.facebook.com/p/FT-UNSUR-100068795391328/?paipv=0&eav=AfaVBX6FRhNO7BbPKJdo8OjpiHwsYAJPTkyaK3zx2W7gWXFrXVOJSgYkxc-1jXMbakc&_rdc=1&_rdr" target="_blank">
                                             <i class="icon-facebook"></i>
                                         </a>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a href="#">
                                             <i class="icon-twitter"></i>
                                         </a>
-                                    </li>
-                                    <li>
+                                    </li> -->
+                                    <!-- <li>
                                         <a href="#">
                                             <i class="icon-linkedin"></i>
                                         </a>
-                                    </li>
-                                    <li>
+                                    </li> -->
+                                    <!-- <li>
                                         <a href="#">
                                             <i class="icon-vimeo"></i>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>

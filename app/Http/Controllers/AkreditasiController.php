@@ -17,6 +17,7 @@ class AkreditasiController extends Controller
             (object)['elemen' => 'Pelaksanaan' ],
             (object)['elemen' => 'Evaluasi' ],
             (object)['elemen' => 'Pengendalian' ],
+            (object)['elemen' => 'Peningkatan' ],
         ];
     }
     

@@ -53,8 +53,7 @@
             @hasSection('auth_header')
                 <div class="card-header {{ config('adminlte.classes_auth_header', '') }}">
                     <h3 class="card-title float-none text-center">
-                        {{-- @yield('auth_header') --}}
-                        Login
+                        {{ $auth_type === 'login' ? 'Login' : 'Register' }}
                     </h3>
                 </div>
             @endif
