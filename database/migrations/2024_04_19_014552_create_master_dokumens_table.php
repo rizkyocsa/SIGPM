@@ -15,10 +15,10 @@ class CreateMasterDokumensTable extends Migration
     {
         Schema::create('master_dokumens', function (Blueprint $table) {
             $table->id();
-            $table->string('kategori');
-            $table->string('sub_kategori');
-            $table->string('nama_dokumen');
-            $table->string('tautan');
+            $table->string('kategori', 50);
+            $table->string('sub_kategori', 50);
+            $table->string('nama_dokumen', 75);
+            $table->string('tautan', 75);
             $table->timestamps();
         });
     }

@@ -15,8 +15,8 @@ class CreateProfilsTable extends Migration
     {
         Schema::create('profils', function (Blueprint $table) {
             $table->id();
-            $table->string('sub_menu');
-            $table->string('judul');
+            $table->string('sub_menu', 50);
+            $table->string('judul', 50);
             $table->text('content');
             $table->timestamps();
         });

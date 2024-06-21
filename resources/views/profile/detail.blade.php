@@ -15,9 +15,8 @@
                                     <h2>{{ $profile->judul }}</h2>
                                 </div>
                                 <div class="contact-page__bottom-form-inner-box">
-                                    <p>
-                                        {{ $profile->content }}
-                                    </p>
+                                <iframe srcdoc="{{ $profile->content }}" style="width:100%; height:400px; border:none;">
+                                </iframe>
                                 </div>
                             </div>
                         </div>
