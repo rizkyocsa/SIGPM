@@ -39,7 +39,7 @@
                             @foreach($dokumen as $item)
                                 <tr>
                                     <td>{{ $no++}}</td>
-                                    <td>{{ $item->nama_kategori }}</td>
+                                    <td>{{ $item->nama_ kategori }}</td>
                                     <td>{{ $item->sub_kategori }}</td>
                                     <td>{{ $item->nama_dokumen }}</td>
                                     <td>{{ $item->tautan }}</td>
