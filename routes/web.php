@@ -66,3 +66,10 @@ Route::post('/berita/update/{id}', [App\Http\Controllers\BeritaController::class
 Route::delete('/berita/delete/{id}', [App\Http\Controllers\BeritaController::class, 'delete'])->name('berita.delete');
 Route::get('/berita/list', [App\Http\Controllers\BeritaController::class, 'list'])->name('berita.list');
 Route::get('/berita/detail/{id}', [App\Http\Controllers\BeritaController::class, 'detail'])->name('berita.detail');
+
+Route::get('/kategori', [App\Http\Controllers\KategoriController::class, 'index'])->name('kategori.index');
+Route::get('/kategori/create', [App\Http\Controllers\KategoriController::class, 'create'])->name('kategori.create');
+Route::post('/kategori/store', [App\Http\Controllers\KategoriController::class, 'store'])->name('kategori.store');
+Route::get('/kategori/edit/{id}', [App\Http\Controllers\KategoriController::class, 'edit'])->name('kategori.edit');
+Route::post('/kategori/update/{id}', [App\Http\Controllers\KategoriController::class, 'update'])->name('kategori.update');
+Route::delete('/kategori/delete/{id}', [App\Http\Controllers\KategoriController::class, 'delete'])->name('kategori.delete');

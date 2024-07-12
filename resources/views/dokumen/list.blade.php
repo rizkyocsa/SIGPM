@@ -19,14 +19,12 @@
                                             @guest
                                                 {{ $record->nama_dokumen }} 
                                             @else
-
                                                 @if($user->id_role == 2)
                                                     <a href="{{ $record->tautan }}" target="_blank">{{ $record->nama_dokumen }}</a>
                                                 @else
                                                     {{ $record->nama_dokumen }} 
                                                 @endif
                                             @endguest
-
                                             </li>
                                         @endforeach
                                     </ul>

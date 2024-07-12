@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             CreateProfilesSeeder::class,
             // CreateBeritaSeeder::class,
             CreateAkreditasiSeeder::class,
+            CreateKategoriSeeder::class,
         ]);
     }
 }

@@ -44,7 +44,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('dokumen.get_list_sub', 'Dokumen SPMI') }}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('dokumen.get_list_sub', 1) }}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->
@@ -69,7 +69,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('dokumen.get_list_sub', 'Formulir SPMI') }}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('dokumen.get_list_sub', 2) }}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->
@@ -94,7 +94,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('dokumen.get_list_sub', 'Manual SPMI') }}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('dokumen.get_list_sub', 3) }}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->
@@ -119,7 +119,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('dokumen.get_list_sub', 'Kebijakan SPMI') }}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('dokumen.get_list_sub', 4) }}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->

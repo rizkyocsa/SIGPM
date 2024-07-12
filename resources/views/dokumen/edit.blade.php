@@ -12,20 +12,63 @@
                         <div class="container">
                             <div class="contact-page__bottom-form-inner">
                                 <div class="title-box">
-                                    <h2>Form Edit Dokumen</h2>
+                                    <h2>Form Tambah Dokumen</h2>
                                 </div>
                                 <div class="contact-page__bottom-form-inner-box">
-                                    <form action="{{ route('dokumen.update', $dokumen->id)}}" method="POST"
+                                    <form action="{{ route('dokumen.update', $dokumen->id )}}" method="POST"
                                         class="contact-page__form contact-form-validated">
                                         @csrf
-                                        <div class="row">
+                                        <div class="row mb-4">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <div class="contact-page__input-box">
                                                 <select name="kategori" style="width: 100%;" required>
                                                     <option value="">Pilih Kategori</option> 
                                                     @foreach($options as $option)
-                                                        <option value="{{ $option->kategori }} - {{ $option->sub_kategori }}">{{ $option->kategori }} - {{ $option->sub_kategori }}</option>
+                                                        <option value="{{ $option->id }}" {{ $dokumen->kategori == $option->id  ? 'selected' : ''}} >{{ $option->nama_kategori }}</option>
                                                     @endforeach
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="contact-page__input-box">
+                                                <select name="sub_kategori" style="width: 100%;">
+                                                    <option value="">Pilih Sub Kategori</option>                                                     
+                                                    <option value="Tahun" {{ $dokumen->kriteria == 'Tahun' ? 'selected' : ''}} >Per Tahun (Kegiatan Mutu)</option>                                                     
+                                                    <option value="Semester" {{ $dokumen->kriteria == 'Semester' ? 'selected' : ''}} >Per Semester (Kegiatan Mutu)</option>                                                     
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="contact-page__input-box">
+                                                <select name="kriteria" style="width: 100%;">
+                                                    <option value="">Pilih Kriteria</option>                                                     
+                                                    <option value="1" {{ $dokumen->kriteria == 1 ? 'selected' : ''}} >Visi, Misi, dan Tujuan</option>                                                     
+                                                    <option value="2" {{ $dokumen->kriteria == 2 ? 'selected' : ''}} >Tata Pamong, Tata Kelola, dan Kerjasama</option>                                                     
+                                                    <option value="3" {{ $dokumen->kriteria == 3 ? 'selected' : ''}} >Mahasiswa</option>                                                     
+                                                    <option value="4" {{ $dokumen->kriteria == 4 ? 'selected' : ''}} >Sumber Daya Manusia</option>                                                     
+                                                    <option value="5" {{ $dokumen->kriteria == 5 ? 'selected' : ''}} >Keuangan, Sarana, dan Prasarana</option>                                                     
+                                                    <option value="6" {{ $dokumen->kriteria == 6 ? 'selected' : ''}} >Pendidikan</option>                                                     
+                                                    <option value="7" {{ $dokumen->kriteria == 7 ? 'selected' : ''}} >Penelitian</option>                                                     
+                                                    <option value="8" {{ $dokumen->kriteria == 8 ? 'selected' : ''}} >Pengabdian Kepada Masyarakat</option>                                                     
+                                                    <option value="9" {{ $dokumen->kriteria == 9 ? 'selected' : ''}} >Luaran dan Capaian Tridarma</option>                                                     
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="contact-page__input-box">
+                                                <select name="elemen" style="width: 100%;">
+                                                    <option value="">Pilih Elemen</option>                                                     
+                                                    <option value="1" {{ $dokumen->elemen == 1 ? 'selected' : ''}} >Penetapan</option>                                                     
+                                                    <option value="2" {{ $dokumen->elemen == 2 ? 'selected' : ''}} >Pelaksanaan</option>                                                     
+                                                    <option value="3" {{ $dokumen->elemen == 3 ? 'selected' : ''}} >Evaluasi</option>                                                     
+                                                    <option value="4" {{ $dokumen->elemen == 4 ? 'selected' : ''}} >Pengedalian</option>                                                     
+                                                    <option value="5" {{ $dokumen->elemen == 5 ? 'selected' : ''}} >Peningkatan</option>                                                     
                                                 </select>
                                                 </div>
                                             </div>
@@ -64,5 +107,6 @@
                     </div>
                 </div>
             </section>
+            <div style="display:block; height: 200px;"></div>
         <!-- </div> -->
 @endsection

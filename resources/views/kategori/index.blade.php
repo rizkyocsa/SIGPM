@@ -13,11 +13,11 @@
                     <div class="sub-title">
                         <h4></h4>
                     </div>
-                    <h2>Data Master Dokumen</h2>
+                    <h2>Data Kategori</h2>
                 </div>
                 <div class="row mb-3">
                     <div class="d-flex justify-content-end">
-                        <a href="{{ route('dokumen.create') }}">
+                        <a href="{{ route('kategori.create') }}">
                             <button class="btn btn-primary">
                                 Tambah
                             </button>
@@ -29,31 +29,25 @@
                         <thead class="text-center">
                             <td>No</td>
                             <td>Kategori</td>
-                            <td>Sub Kategori</td>
-                            <td>Nama Dokumen</td>
-                            <td>Tautan</td>
                             <td>Action</td>
                         </thead>
                         <tbody>
                             @php $no=1; @endphp
-                            @foreach($dokumen as $item)
+                            @foreach($kategori as $item)
                                 <tr>
                                     <td>{{ $no++}}</td>
                                     <td>{{ $item->nama_kategori }}</td>
-                                    <td>{{ $item->sub_kategori }}</td>
-                                    <td>{{ $item->nama_dokumen }}</td>
-                                    <td>{{ $item->tautan }}</td>
-                                    <td>
-                                        <a href="{{ route('dokumen.edit', $item->id)}}">
+                                    <td style="width: 15%;">
+                                        <a href="{{ route('kategori.edit', $item->id)}}">
                                             <button class="btn btn-warning">Edit</button>
                                         </a>
-                                        <a href="{{ route('dokumen.delete', $item->id) }}" class="btn btn-danger" data-confirm-delete="true">Delete</a>
+                                        <a href="{{ route('kategori.delete', $item->id) }}" class="btn btn-danger" data-confirm-delete="true">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $dokumen->links('pagination::simple-bootstrap-4') }}
+                    {{ $kategori->links('pagination::simple-bootstrap-4') }}
                 </div>
             </div>
         </section>

@@ -26,7 +26,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('akreditasi.index', 'kriteria_1')}}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('akreditasi.index', '1')}}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->
@@ -49,7 +49,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('akreditasi.index', 'kriteria_2')}}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('akreditasi.index', '2')}}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->
@@ -72,7 +72,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('akreditasi.index', 'kriteria_3')}}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('akreditasi.index', '3')}}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->
@@ -98,7 +98,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('akreditasi.index', 'kriteria_4')}}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('akreditasi.index', '4')}}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->
@@ -121,7 +121,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('akreditasi.index', 'kriteria_5')}}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('akreditasi.index', '5')}}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->
@@ -144,7 +144,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('akreditasi.index', 'kriteria_6')}}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('akreditasi.index', '6')}}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->
@@ -170,7 +170,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('akreditasi.index', 'kriteria_7')}}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('akreditasi.index', '7')}}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->
@@ -193,7 +193,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('akreditasi.index', 'kriteria_8')}}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('akreditasi.index', '8')}}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->
@@ -216,7 +216,7 @@
                             </div>
                             <div class="skills-one__single-right-box">
                                 <div class="skills-one__single-btn-box">
-                                    <a href="{{ route('akreditasi.index', 'kriteria_9')}}"><span class="icon-up-right-arrow"></span></a>
+                                    <a href="{{ route('akreditasi.index', '9')}}"><span class="icon-up-right-arrow"></span></a>
                                 </div>
                                 <div class="skills-one__single-date-box">
                                     <!-- <p>November 2022</p> -->

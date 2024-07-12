@@ -14,7 +14,20 @@
                                     <h1 class="text-center"> {{ $title }} </h1>
                                     <h3 class="text-center">( {{ $subTitle }} )</h3>
                                 @foreach($akreditasi as $subKategori => $subRecords)
-                                    <h4 style="margin-bottom: 10px;">{{ $subKategori }}</h4>
+                                    <h4 style="margin-bottom: 10px;">
+                                        <!-- {{ $subKategori }} -->
+                                        @if($subKategori == 1)
+                                            Penetepatan
+                                        @elseif($subKategori == 2)
+                                            Pelaksanaan
+                                        @elseif($subKategori == 3)
+                                            Evaluasi
+                                        @elseif($subKategori == 4)
+                                            Pengendalian
+                                        @elseif($subKategori == 5)
+                                            Peningkatan
+                                        @endif
+                                    </h4>
                                     <ul>
                                         @foreach($subRecords as $record)
                                         <li style="margin-left: 20px;">

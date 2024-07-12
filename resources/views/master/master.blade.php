@@ -189,8 +189,11 @@
                                                                 <a href="{{ route('survey.index') }}">Kelola Survey</a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{ route('akreditasi.list_gpm') }}">Kelola Akreditasi</a>
+                                                                <a href="{{ route('kategori.index') }}">Kelola Kategori</a>
                                                             </li>
+                                                            <!-- <li>
+                                                                <a href="{{ route('akreditasi.list_gpm') }}">Kelola Akreditasi</a>
+                                                            </li> -->
                                                             @if ($user->id_role == 1)
                                                                 
                                                                 <li>

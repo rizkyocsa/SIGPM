@@ -17,7 +17,7 @@ class CreateKriteriasTable extends Migration
             $table->id();
             $table->string('kategori', 50);
             $table->string('elemen', 75);
-            $table->bigInteger('no_urut', 20);
+            $table->unsignedInteger('no_urut');
             $table->string('nama_dokumen', 75);
             $table->string('tautan_dokumen', 255);
             $table->timestamps();

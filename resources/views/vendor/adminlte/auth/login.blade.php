@@ -105,7 +105,7 @@
         </p>
     @endif --}}
 
-    {{-- Register link --}}
+    <!-- {{-- Register link --}}
     @if($register_url)
         <p class="my-0">
             Tidak Punya Akun ?
@@ -113,5 +113,5 @@
                 Register
             </a>
         </p>
-    @endif
+    @endif -->
 @stop

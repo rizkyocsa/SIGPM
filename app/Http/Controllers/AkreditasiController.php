@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateAkreditasiRequest;
 use App\Models\Kriteria;
+use App\Models\MasterDokumen;
 Use Alert;
 
 class AkreditasiController extends Controller
@@ -21,17 +22,33 @@ class AkreditasiController extends Controller
         ];
     }
     
+    // private function _getTitleAndSubTitle($kategori){
+    //     $titles = [
+    //         'kriteria_1' => ['title' => 'Kriteria 1', 'subTitle' => 'Visi, Misi, Tujuan dan Strategi'],
+    //         'kriteria_2' => ['title' => 'Kriteria 2', 'subTitle' => 'Tata Pamong, Tata Kelola, dan Kerjasama'],
+    //         'kriteria_3' => ['title' => 'Kriteria 3', 'subTitle' => 'Mahasiswa'],
+    //         'kriteria_4' => ['title' => 'Kriteria 4', 'subTitle' => 'Sumber Daya Manusia'],
+    //         'kriteria_5' => ['title' => 'Kriteria 5', 'subTitle' => 'Keuangan, Sarana dan Prasana'],
+    //         'kriteria_6' => ['title' => 'Kriteria 6', 'subTitle' => 'Pendidikan'],
+    //         'kriteria_7' => ['title' => 'Kriteria 7', 'subTitle' => 'Penelitian'],
+    //         'kriteria_8' => ['title' => 'Kriteria 8', 'subTitle' => 'Pengabdian Kepada Masyarakat'],
+    //         'kriteria_9' => ['title' => 'Kriteria 9', 'subTitle' => 'Luaran dan Capaian Tridarma'],
+    //     ];
+
+    //     return $titles[$kategori] ?? ['title' => '', 'subTitle' => ''];
+    // }
+
     private function _getTitleAndSubTitle($kategori){
         $titles = [
-            'kriteria_1' => ['title' => 'Kriteria 1', 'subTitle' => 'Visi, Misi, Tujuan dan Strategi'],
-            'kriteria_2' => ['title' => 'Kriteria 2', 'subTitle' => 'Tata Pamong, Tata Kelola, dan Kerjasama'],
-            'kriteria_3' => ['title' => 'Kriteria 3', 'subTitle' => 'Mahasiswa'],
-            'kriteria_4' => ['title' => 'Kriteria 4', 'subTitle' => 'Sumber Daya Manusia'],
-            'kriteria_5' => ['title' => 'Kriteria 5', 'subTitle' => 'Keuangan, Sarana dan Prasana'],
-            'kriteria_6' => ['title' => 'Kriteria 6', 'subTitle' => 'Pendidikan'],
-            'kriteria_7' => ['title' => 'Kriteria 7', 'subTitle' => 'Penelitian'],
-            'kriteria_8' => ['title' => 'Kriteria 8', 'subTitle' => 'Pengabdian Kepada Masyarakat'],
-            'kriteria_9' => ['title' => 'Kriteria 9', 'subTitle' => 'Luaran dan Capaian Tridarma'],
+            '1' => ['title' => 'Kriteria 1', 'subTitle' => 'Visi, Misi, Tujuan dan Strategi'],
+            '2' => ['title' => 'Kriteria 2', 'subTitle' => 'Tata Pamong, Tata Kelola, dan Kerjasama'],
+            '3' => ['title' => 'Kriteria 3', 'subTitle' => 'Mahasiswa'],
+            '4' => ['title' => 'Kriteria 4', 'subTitle' => 'Sumber Daya Manusia'],
+            '5' => ['title' => 'Kriteria 5', 'subTitle' => 'Keuangan, Sarana dan Prasana'],
+            '6' => ['title' => 'Kriteria 6', 'subTitle' => 'Pendidikan'],
+            '7' => ['title' => 'Kriteria 7', 'subTitle' => 'Penelitian'],
+            '8' => ['title' => 'Kriteria 8', 'subTitle' => 'Pengabdian Kepada Masyarakat'],
+            '9' => ['title' => 'Kriteria 9', 'subTitle' => 'Luaran dan Capaian Tridarma'],
         ];
 
         return $titles[$kategori] ?? ['title' => '', 'subTitle' => ''];
@@ -130,9 +147,14 @@ class AkreditasiController extends Controller
         
         ['title' => $title, 'subTitle' => $subTitle] = $this->_getTitleAndSubTitle($kategori);
 
-        $akreditasi = Kriteria::where('kategori', $kategori)
+        // $akreditasi = Kriteria::where('kategori', $kategori)
+        //                 ->orderBy('elemen')
+        //                 ->orderBy('no_urut')
+        //                 ->get() 
+        //                 ->groupBy('elemen');       
+        $akreditasi = MasterDokumen::where('kategori', $kategori)
                         ->orderBy('elemen')
-                        ->orderBy('no_urut')
+                        // ->orderBy('no_urut')
                         ->get() 
                         ->groupBy('elemen');       
         // dd($akreditasi);

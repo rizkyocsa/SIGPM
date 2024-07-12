@@ -18,14 +18,57 @@
                                     <form action="{{ route('dokumen.store')}}" method="POST"
                                         class="contact-page__form contact-form-validated">
                                         @csrf
-                                        <div class="row">
+                                        <div class="row mb-4">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <div class="contact-page__input-box">
                                                 <select name="kategori" style="width: 100%;" required>
                                                     <option value="">Pilih Kategori</option> 
                                                     @foreach($options as $option)
-                                                        <option value="{{ $option->kategori }} - {{ $option->sub_kategori }}">{{ $option->kategori }} - {{ $option->sub_kategori }}</option>
+                                                        <option value="{{ $option->id }}">{{ $option->nama_kategori }}</option>
                                                     @endforeach
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="contact-page__input-box">
+                                                <select name="sub_kategori" style="width: 100%;">
+                                                    <option value="">Pilih Sub Kategori</option>                                                     
+                                                    <option value="Per Tahun">Per Tahun (Kegiatan Mutu)</option>                                                     
+                                                    <option value="Per Semester">Per Semester (Kegiatan Mutu)</option>                                                     
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="contact-page__input-box">
+                                                <select name="kriteria" style="width: 100%;">
+                                                    <option value="">Pilih Kriteria</option>                                                     
+                                                    <option value="1">Visi, Misi, dan Tujuan</option>                                                     
+                                                    <option value="2">Tata Pamong, Tata Kelola, dan Kerjasama</option>                                                     
+                                                    <option value="3">Mahasiswa</option>                                                     
+                                                    <option value="4">Sumber Daya Manusia</option>                                                     
+                                                    <option value="5">Keuangan, Sarana, dan Prasarana</option>                                                     
+                                                    <option value="6">Pendidikan</option>                                                     
+                                                    <option value="7">Penelitian</option>                                                     
+                                                    <option value="8">Pengabdian Kepada Masyarakat</option>                                                     
+                                                    <option value="9">Luaran dan Capaian Tridarma</option>                                                     
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="contact-page__input-box">
+                                                <select name="elemen" style="width: 100%;">
+                                                    <option value="">Pilih Elemen</option>                                                     
+                                                    <option value="1">Penetapan</option>                                                     
+                                                    <option value="2">Pelaksanaan</option>                                                     
+                                                    <option value="3">Evaluasi</option>                                                     
+                                                    <option value="4">Pengedalian</option>                                                     
+                                                    <option value="5">Peningkatan</option>                                                     
                                                 </select>
                                                 </div>
                                             </div>

@@ -11,7 +11,7 @@
                     <div class="contact-page__bottom-form">
                         <div class="container">
                             <div class="contact-page__bottom-form-inner">
-                                    <h4 style="margin-bottom: 10px;">{{ $sub_kategori }}</h4>
+                                    <h4 style="margin-bottom: 10px;">{{ isset($sub_kategori->nama_kategori) ? $sub_kategori->nama_kategori  : '' }}</h4>
                                     <ul>
                                         @foreach($dokumen as $record)
                                         <li style="margin-left: 20px;">

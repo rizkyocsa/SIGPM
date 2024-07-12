@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateDokumenRequest;
 use App\Models\MasterDokumen;
+use App\Models\Kategori;
 Use Alert;
+use DB;
 
 class DokumenController extends Controller
 {
@@ -34,7 +36,12 @@ class DokumenController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $dokumen = MasterDokumen::paginate(5); 
+        $dokumen = MasterDokumen::paginate(5);
+
+        $dokumen = DB::table('master_dokumens')
+            ->select('master_dokumens.*', 'kategoris.nama_kategori')
+            ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
+            ->paginate(5); 
 
         $title = 'Hapus Data!';
         $text = "Are you sure you want to delete?";
@@ -46,25 +53,40 @@ class DokumenController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $options = $this->options;
+        // $options = $this->options;
+        $options = Kategori::all();
         return view('dokumen.create', compact('user', 'options'));
     }
 
-    public function store(CreateDokumenRequest $req)
+    public function store(Request $req)
     {        
-        $validate = $req->validated();
+        // $validate = $req->validated();
+        $validate = $req->validate([
+            'kategori' => 'required',            
+            'nama_dokumen' => 'required',            
+            'tautan' => 'required',            
+        ]);
 
-        $kategoriParts = explode(' - ', $validate['kategori']);
-        $kategori = $kategoriParts[0];
-        $subKategori = $kategoriParts[1];
+        $dokumen = new MasterDokumen;
+        
+        $dokumen->kategori = $req->get('kategori');
+        $dokumen->sub_kategori = $req->get('sub_kategori');
+        $dokumen->kriteria = $req->get('kriteria');
+        $dokumen->elemen = $req->get('elemen');
+        $dokumen->nama_dokumen = $req->get('nama_dokumen');
+        $dokumen->tautan = $req->get('tautan');
+        // $kategoriParts = explode(' - ', $validate['kategori']);
+        // $kategori = $kategoriParts[0];
+        // $subKategori = $kategoriParts[1];
 
-        $validate['kategori'] = $kategori;
-        $validate['sub_kategori'] = $subKategori;
+        // $validate['kategori'] = $kategori;
+        // $validate['sub_kategori'] = $subKategori;
 
-        // dd($validate);
-        $create = MasterDokumen::create($validate);
+        // // dd($validate);
+        // $create = MasterDokumen::create($validate);
+        $dokumen->save();
 
-        if($create){
+        if($dokumen){
             $user = Auth::user();
             $dokumen = MasterDokumen::all();
             Alert::success('Berhasil', 'Berhasil Tambah Data');
@@ -81,26 +103,31 @@ class DokumenController extends Controller
     {
         $user = Auth::user();
         $dokumen = MasterDokumen::findOrFail($id);
-        $options = $this->options;
+        // $options = $this->options;
+        $options = Kategori::all();
+        // dd($options);
         return view('dokumen.edit', compact('user', 'dokumen', 'options'));
     }
 
     public function update(CreateDokumenRequest $req, $id)
     {
-        $validate = $req->validated();
+        $validate = $req->validate([
+            'kategori' => 'required',            
+            'nama_dokumen' => 'required',            
+            'tautan' => 'required',            
+        ]);
 
-        $kategoriParts = explode(' - ', $validate['kategori']);
-        $kategori = $kategoriParts[0];
-        $subKategori = $kategoriParts[1];
-
-        $validate['kategori'] = $kategori;
-        $validate['sub_kategori'] = $subKategori;
-
-        $dokumen = MasterDokumen::find($id);
+        $dokumen = MasterDokumen::findOrFail($id);
         
-        $update = $dokumen->update($validate);
+        $dokumen->kategori = $req->get('kategori');
+        $dokumen->sub_kategori = $req->get('sub_kategori');
+        $dokumen->kriteria = $req->get('kriteria');
+        $dokumen->elemen = $req->get('elemen');
+        $dokumen->nama_dokumen = $req->get('nama_dokumen');
+        $dokumen->tautan = $req->get('tautan');        
+        $dokumen->save();
 
-        if($update){
+        if($dokumen){
             $user = Auth::user();
             $dokumen = MasterDokumen::all();
             Alert::success('Berhasil', 'Berhasil Ubah Data');
@@ -125,7 +152,30 @@ class DokumenController extends Controller
     public function get_list($kategori)
     {
         $user = Auth::user();
-        $dokumen = MasterDokumen::where('kategori', $kategori)->get()->groupBy('sub_kategori');
+        $dokumen = 0;
+        if($kategori === "Dokumen"){
+            $dokumen = DB::table('master_dokumens')
+                ->select('master_dokumens.*', 'kategoris.nama_kategori')
+                ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
+                ->get()
+                ->groupBy('nama_kategori'); 
+        }else if($kategori === "Kegiatan Mutu"){
+            $dokumen = DB::table('master_dokumens')
+                ->select('master_dokumens.*', 'kategoris.nama_kategori')
+                ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
+                ->where('master_dokumens.kategori', 6)
+                ->get()
+                ->groupBy('sub_kategori'); 
+        }else if($kategori === "Laporan"){
+            $dokumen = DB::table('master_dokumens')
+                ->select('master_dokumens.*', 'kategoris.nama_kategori')
+                ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
+                ->where('master_dokumens.kategori', 7)
+                ->get()
+                ->groupBy('sub_kategori'); 
+        }
+        
+        // dd($kategori);
         // dd($dokumen);
         return view('dokumen.list', compact('user','dokumen'));
     }
@@ -133,8 +183,19 @@ class DokumenController extends Controller
     public function get_list_sub($sub_kategori)
     {
         $user = Auth::user();
-        $dokumen = MasterDokumen::where('sub_kategori', $sub_kategori)->get();
-        // dd($dokumen);
+        // $dokumen = MasterDokumen::where('sub_kategori', $sub_kategori)->get();
+        $dokumen = DB::table('master_dokumens')
+                ->select('master_dokumens.*', 'kategoris.nama_kategori')
+                ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
+                ->where('kategori', $sub_kategori)
+                ->get();
+        $sub_kategori = DB::table('master_dokumens')
+                ->select('master_dokumens.*', 'kategoris.nama_kategori')
+                ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
+                ->where('kategori', $sub_kategori)
+                ->first();
+                // ->groupBy('kategori');
+        // dd($sub_kategori);
         return view('dokumen.list-sub', compact('user','dokumen', 'sub_kategori'));
     }
 }
