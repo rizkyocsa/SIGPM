@@ -152,12 +152,12 @@ class AkreditasiController extends Controller
         //                 ->orderBy('no_urut')
         //                 ->get() 
         //                 ->groupBy('elemen');       
-        $akreditasi = MasterDokumen::where('kategori', $kategori)
+        $akreditasi = MasterDokumen::where('kriteria', $kategori)
                         ->orderBy('elemen')
                         // ->orderBy('no_urut')
                         ->get() 
                         ->groupBy('elemen');       
-        // dd($akreditasi);
+        // dd($kategori);
         return view('akreditasi.detail', compact('user','akreditasi','title', 'subTitle'));
     }
 
