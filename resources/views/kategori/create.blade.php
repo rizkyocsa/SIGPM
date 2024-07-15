@@ -12,7 +12,7 @@
                         <div class="container">
                             <div class="contact-page__bottom-form-inner">
                                 <div class="title-box">
-                                    <h2>Form Tambah Survey</h2>
+                                    <h2>Form Tambah Kategori</h2>
                                 </div>
                                 <div class="contact-page__bottom-form-inner-box">
                                     <form action="{{ route('kategori.store')}}" method="POST"
@@ -21,7 +21,7 @@
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <div class="contact-page__input-box">
-                                                    <input type="text" placeholder="Nama Survey" name="nama_kategori" required>
+                                                    <input type="text" placeholder="Nama Kategori" name="nama_kategori" required>
                                                 </div>
                                             </div>
                                         </div>
