@@ -75,6 +75,7 @@ class DokumenController extends Controller
         $dokumen->elemen = $req->get('elemen');
         $dokumen->nama_dokumen = $req->get('nama_dokumen');
         $dokumen->tautan = $req->get('tautan');
+        $dokumen->is_private = $req->get('is_private');
         // $kategoriParts = explode(' - ', $validate['kategori']);
         // $kategori = $kategoriParts[0];
         // $subKategori = $kategoriParts[1];
@@ -124,7 +125,8 @@ class DokumenController extends Controller
         $dokumen->kriteria = $req->get('kriteria');
         $dokumen->elemen = $req->get('elemen');
         $dokumen->nama_dokumen = $req->get('nama_dokumen');
-        $dokumen->tautan = $req->get('tautan');        
+        $dokumen->tautan = $req->get('tautan');  
+        $dokumen->is_private = $req->get('is_private');      
         $dokumen->save();
 
         if($dokumen){

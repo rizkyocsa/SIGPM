@@ -88,6 +88,17 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row mb-4">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="contact-page__input-box">
+                                                <select name="is_private" style="width: 100%;">
+                                                    <option value="">Pilih Kategori Dokumen</option>                                                     
+                                                    <option value="0" {{ $dokumen->is_private == 0 ? 'selected' : ''}} >Public</option>                                                     
+                                                    <option value="1" {{ $dokumen->is_private == 1 ? 'selected' : ''}} >Private</option>                                                     
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <button class="btn btn-block btn-danger" type="button" onclick="window.history.back();">

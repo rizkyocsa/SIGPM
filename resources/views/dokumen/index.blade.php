@@ -32,6 +32,7 @@
                             <td>Sub Kategori</td>
                             <td>Nama Dokumen</td>
                             <td>Tautan</td>
+                            <td>Kategori Dokumen</td>
                             <td>Action</td>
                         </thead>
                         <tbody>
@@ -43,6 +44,13 @@
                                     <td>{{ $item->sub_kategori }}</td>
                                     <td>{{ $item->nama_dokumen }}</td>
                                     <td>{{ $item->tautan }}</td>
+                                    <td>
+                                        @if($item->is_private == "0")
+                                            Public
+                                        @else
+                                            Private
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{ route('dokumen.edit', $item->id)}}">
                                             <button class="btn btn-warning">Edit</button>

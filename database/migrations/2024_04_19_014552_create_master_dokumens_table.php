@@ -21,6 +21,7 @@ class CreateMasterDokumensTable extends Migration
             $table->string('elemen', 50)->nullable();
             $table->string('nama_dokumen', 75);
             $table->string('tautan', 75);
+            $table->string('is_private', 75);
             $table->timestamps();
         });
     }
