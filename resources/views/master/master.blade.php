@@ -384,6 +384,10 @@
             });
         });
 
+        $('#table-data').DataTable();
+
+        let baseurl = "<?=url('/')?>";
+        let fullurl = "<?=url()->full()?>";
     </script>
 </body>
 

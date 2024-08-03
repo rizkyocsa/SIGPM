@@ -10,16 +10,19 @@ Use Alert;
 
 class KategoriController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
-        $kategori = Kategori::paginate(5); 
+
+        $perPage = 5;
+        $kategori = Kategori::paginate($perPage); 
+        $currentPage = $request->input('page', 1);
 
         $title = 'Hapus Data!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
 
-        return view('kategori.index', compact('user','kategori'));
+        return view('kategori.index', compact('user','kategori','currentPage', 'perPage'));
     }
 
     public function create()

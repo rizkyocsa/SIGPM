@@ -32,7 +32,7 @@
                             <td>Action</td>
                         </thead>
                         <tbody>
-                            @php $no=1; @endphp
+                        @php $no = ($currentPage - 1) * $perPage + 1; @endphp
                             @foreach($kategori as $item)
                                 <tr>
                                     <td>{{ $no++}}</td>
@@ -47,7 +47,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $kategori->links('pagination::simple-bootstrap-4') }}
+                    {{ $kategori->links('pagination::simple-bootstrap-4', ['page' => $currentPage]) }}
                 </div>
             </div>
         </section>

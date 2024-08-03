@@ -10,16 +10,19 @@ Use Alert;
 
 class BeritaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
-        $berita = Berita::paginate(5); 
+
+        $perPage = 5;
+        $berita = Berita::paginate($perPage); 
+        $currentPage = $request->input('page', 1);
 
         $title = 'Hapus Data!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
 
-        return view('berita.index', compact('user','berita'));
+        return view('berita.index', compact('user','berita','currentPage','perPage'));
     }
 
     public function create()
@@ -30,6 +33,7 @@ class BeritaController extends Controller
 
     public function store(CreateBeritaRequest $req)
     {       
+
         $name = '';
         if($req->hasFile('header')){
             $extension = $req->file('header')->extension();
@@ -70,10 +74,21 @@ class BeritaController extends Controller
 
     public function update(CreateBeritaRequest $req, $id)
     {
-        // dd($req);
-        $validate = $req->validated();
-        $berita = Berita::find($id);
-        // dd($berita);
+        $berita = Berita::findOrFail($id);
+        $name = '';
+        if($req->hasFile('header')){
+            $extension = $req->file('header')->extension();
+
+            $filename = 'header_berita_'.time().'.'.$extension;
+
+            $req->file('header')->storeAs(
+                'public/header_berita',$filename
+            );
+            $name = $filename;
+        }
+
+        $validate = $req->validated();    
+        $validate['header'] = $name;        
         $update = $berita->update($validate);
 
         if($update){

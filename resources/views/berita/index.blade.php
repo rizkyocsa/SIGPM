@@ -34,7 +34,7 @@
                             <td style="width: 150px;">Action</td>
                         </thead>
                         <tbody>
-                            @php $no=1; @endphp
+                            @php $no = ($currentPage - 1) * $perPage + 1; @endphp
                             @foreach($berita as $item)
                                 <tr>
                                     <td style="width: 50px;">{{ $no++}}</td>
@@ -51,7 +51,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $berita->links('pagination::simple-bootstrap-4') }}
+                    {{ $berita->links('pagination::simple-bootstrap-4', ['page' => $currentPage]) }}
                 </div>
             </div>
         </section>

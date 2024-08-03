@@ -17,6 +17,11 @@
                 </div>
                 <div class="row mb-3">
                     <div class="d-flex justify-content-end">
+                        <!-- <select name="" id="">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                        </select>                     -->
                         <a href="{{ route('dokumen.create') }}">
                             <button class="btn btn-primary">
                                 Tambah
@@ -25,9 +30,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <table class="table table-bordered justify-content-center">
+                    <table class="table table-bordered justify-content-center" id="table-data">
                         <thead class="text-center">
                             <td>No</td>
+                            <td>Prodi</td>
                             <td>Kategori</td>
                             <td>Sub Kategori</td>
                             <td>Nama Dokumen</td>
@@ -36,10 +42,19 @@
                             <td>Action</td>
                         </thead>
                         <tbody>
-                            @php $no=1; @endphp
+                            @php $no = ($currentPage - 1) * $perPage + 1; @endphp
                             @foreach($dokumen as $item)
                                 <tr>
                                     <td>{{ $no++}}</td>
+                                    <td>
+                                        @if( $item->id_prodi == 1)
+                                            Teknik Industri
+                                        @elseif ( $item->id_prodi == 2)
+                                            Teknik Informatika
+                                        @else
+                                            Teknik Sipil
+                                        @endif
+                                    </td>
                                     <td>{{ $item->nama_kategori }}</td>
                                     <td>{{ $item->sub_kategori }}</td>
                                     <td>{{ $item->nama_dokumen }}</td>
@@ -61,10 +76,16 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $dokumen->links('pagination::simple-bootstrap-4') }}
+                    {{ $dokumen->links('pagination::simple-bootstrap-4', ['page' => $currentPage]) }}
                 </div>
             </div>
         </section>
     <!-- </section> -->
     <!--End Skills One-->
 @endsection
+
+<!-- @section('js')
+<script>
+    $('#table-data').DataTable();
+</script>
+@endsection -->

@@ -17,12 +17,12 @@
                                 </div>
                                 <div class="contact-page__bottom-form-inner-box">
                                     <form action="{{ route('berita.update', $berita->id )}}" method="POST"
-                                        class="contact-page__form contact-form-validated">
+                                        class="contact-page__form contact-form-validated" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <div class="contact-page__input-box">
-                                                    <input type="file" placeholder="Foto Header" name="header"  required>
+                                                    <input type="file" placeholder="Foto Header" name="header" value="{{ $berita->header }}"  required>
                                                 </div>
                                             </div>
                                         </div>

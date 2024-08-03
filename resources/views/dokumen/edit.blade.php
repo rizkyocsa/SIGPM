@@ -21,6 +21,18 @@
                                         <div class="row mb-4">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <div class="contact-page__input-box">
+                                                <select name="id_prodi" style="width: 100%;" required>
+                                                    <option value="">Pilih Prodi</option> 
+                                                    <option value="1" {{ $dokumen->id_prodi == 1 ? 'selected' : ''}} >Teknik Industri</option>
+                                                    <option value="2" {{ $dokumen->id_prodi == 2 ? 'selected' : ''}} >Teknik Informatika</option>
+                                                    <option value="3" {{ $dokumen->id_prodi == 3 ? 'selected' : ''}} >Teknik Sipil</option>
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="contact-page__input-box">
                                                 <select name="kategori" style="width: 100%;" required>
                                                     <option value="">Pilih Kategori</option> 
                                                     @foreach($options as $option)

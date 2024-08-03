@@ -33,21 +33,25 @@ class DokumenController extends Controller
         ];
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
-        $dokumen = MasterDokumen::paginate(5);
+        $perPage = 5;
+        // $dokumen = MasterDokumen::paginate(5);
 
         $dokumen = DB::table('master_dokumens')
             ->select('master_dokumens.*', 'kategoris.nama_kategori')
             ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
-            ->paginate(5); 
+            // ->paginate(5); 
+            ->paginate($perPage); 
+
+        $currentPage = $request->input('page', 1);
 
         $title = 'Hapus Data!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
 
-        return view('dokumen.index', compact('user','dokumen'));
+        return view('dokumen.index', compact('user','dokumen', 'currentPage', 'perPage'));
     }
 
     public function create()
@@ -62,6 +66,7 @@ class DokumenController extends Controller
     {        
         // $validate = $req->validated();
         $validate = $req->validate([
+            'id_prodi' => 'required',            
             'kategori' => 'required',            
             'nama_dokumen' => 'required',            
             'tautan' => 'required',            
@@ -69,6 +74,7 @@ class DokumenController extends Controller
 
         $dokumen = new MasterDokumen;
         
+        $dokumen->id_prodi = $req->get('id_prodi');
         $dokumen->kategori = $req->get('kategori');
         $dokumen->sub_kategori = $req->get('sub_kategori');
         $dokumen->kriteria = $req->get('kriteria');
@@ -113,6 +119,7 @@ class DokumenController extends Controller
     public function update(CreateDokumenRequest $req, $id)
     {
         $validate = $req->validate([
+            'id_prodi' => 'required',            
             'kategori' => 'required',            
             'nama_dokumen' => 'required',            
             'tautan' => 'required',            
@@ -120,6 +127,7 @@ class DokumenController extends Controller
 
         $dokumen = MasterDokumen::findOrFail($id);
         
+        $dokumen->id_produ = $req->get('id_produ');
         $dokumen->kategori = $req->get('kategori');
         $dokumen->sub_kategori = $req->get('sub_kategori');
         $dokumen->kriteria = $req->get('kriteria');
@@ -160,7 +168,8 @@ class DokumenController extends Controller
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')
                 ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
                 ->get()
-                ->groupBy('nama_kategori'); 
+                // ->groupBy('id_prodi')
+                ->groupBy('nama_kategori');
         }else if($kategori === "Kegiatan Mutu"){
             $dokumen = DB::table('master_dokumens')
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')

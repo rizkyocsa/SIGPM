@@ -15,6 +15,7 @@ class CreateMasterDokumensTable extends Migration
     {
         Schema::create('master_dokumens', function (Blueprint $table) {
             $table->id();
+            $table->string('id_prodi', 10);
             $table->string('kategori', 50);
             $table->string('sub_kategori', 50)->nullable();
             $table->string('kriteria', 50)->nullable();
