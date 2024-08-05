@@ -163,32 +163,45 @@ class DokumenController extends Controller
     {
         $user = Auth::user();
         $dokumen = 0;
+        $groupedDokumens = 0;
         if($kategori === "Dokumen"){
             $dokumen = DB::table('master_dokumens')
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')
                 ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
-                ->get()
+                ->get();
                 // ->groupBy('id_prodi')
-                ->groupBy('nama_kategori');
+                // ->groupBy('nama_kategori');
+
+            $groupedDokumens = $dokumen->groupBy('id_prodi')->map(function ($items) {
+                return $items->groupBy('nama_kategori');
+            });   
         }else if($kategori === "Kegiatan Mutu"){
             $dokumen = DB::table('master_dokumens')
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')
                 ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
                 ->where('master_dokumens.kategori', 6)
-                ->get()
-                ->groupBy('sub_kategori'); 
+                ->get();
+                // ->groupBy('sub_kategori'); 
+
+                $groupedDokumens = $dokumen->groupBy('id_prodi')->map(function ($items) {
+                    return $items->groupBy('sub_kategori');
+                });   
         }else if($kategori === "Laporan"){
             $dokumen = DB::table('master_dokumens')
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')
                 ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
-                ->where('master_dokumens.kategori', 7)
-                ->get()
-                ->groupBy('sub_kategori'); 
+                ->where('master_dokumens.kategori', 5)
+                ->get();
+                // ->groupBy('sub_kategori'); 
+                $groupedDokumens = $dokumen->groupBy('id_prodi')->map(function ($items) {
+                    return $items->groupBy('sub_kategori');
+                });  
         }
         
         // dd($kategori);
         // dd($dokumen);
-        return view('dokumen.list', compact('user','dokumen'));
+        // dd($groupedDokumens);
+        return view('dokumen.list', compact('user','groupedDokumens'));
     }
 
     public function get_list_sub($sub_kategori)
