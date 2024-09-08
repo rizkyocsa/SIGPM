@@ -38,9 +38,23 @@ class CreateUsersSeeder extends Seeder
                 'password' => Hash::make('12345')
             ],
             [
-                'nama' => 'Prodi',
-                'email' => 'prodi@gmail.com',
+                'nama' => 'Prodi Industri',
+                'email' => 'industri@gmail.com',
                 'id_role' => 3,
+                'noHP' => '089655313595',
+                'password' => Hash::make('12345')
+            ],
+            [
+                'nama' => 'Prodi Informatika',
+                'email' => 'informatika@gmail.com',
+                'id_role' => 4,
+                'noHP' => '089655313595',
+                'password' => Hash::make('12345')
+            ],
+            [
+                'nama' => 'Prodi Sipil',
+                'email' => 'sipil@gmail.com',
+                'id_role' => 5,
                 'noHP' => '089655313595',
                 'password' => Hash::make('12345')
             ],

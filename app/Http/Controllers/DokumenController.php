@@ -38,12 +38,25 @@ class DokumenController extends Controller
         $user = Auth::user();
         $perPage = 5;
         // $dokumen = MasterDokumen::paginate(5);
+        $prodi = '';
+        
+        if($user->id_role == 3){
+            $prodi = 1;
+        }else if($user->id_role == 4){
+            $prodi = 2;
+        }else if($user->id_role == 5){
+            $prodi = 3;
+        }
 
         $dokumen = DB::table('master_dokumens')
             ->select('master_dokumens.*', 'kategoris.nama_kategori')
-            ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
-            // ->paginate(5); 
-            ->paginate($perPage); 
+            ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id');
+
+        if ($prodi !== '') { // Check if $prodi has a valid value
+            $dokumen->where('id_prodi', $prodi);
+        }
+        
+        $dokumen = $dokumen->paginate($perPage);            
 
         $currentPage = $request->input('page', 1);
 
@@ -64,9 +77,9 @@ class DokumenController extends Controller
 
     public function store(Request $req)
     {        
-        // $validate = $req->validated();
-        $validate = $req->validate([
-            'id_prodi' => 'required',            
+        $user = Auth::user();
+
+        $validate = $req->validate([                     
             'kategori' => 'required',            
             'nama_dokumen' => 'required',            
             'tautan' => 'required',            
@@ -74,23 +87,21 @@ class DokumenController extends Controller
 
         $dokumen = new MasterDokumen;
         
-        $dokumen->id_prodi = $req->get('id_prodi');
+        if($user->id_role == 3){
+            $dokumen->id_prodi = 1;
+        }else if($user->id_role == 4){
+            $dokumen->id_prodi = 2;
+        }else if($user->id_role == 5){
+            $dokumen->id_prodi = 3;
+        }
+
         $dokumen->kategori = $req->get('kategori');
         $dokumen->sub_kategori = $req->get('sub_kategori');
         $dokumen->kriteria = $req->get('kriteria');
         $dokumen->elemen = $req->get('elemen');
         $dokumen->nama_dokumen = $req->get('nama_dokumen');
         $dokumen->tautan = $req->get('tautan');
-        $dokumen->is_private = $req->get('is_private');
-        // $kategoriParts = explode(' - ', $validate['kategori']);
-        // $kategori = $kategoriParts[0];
-        // $subKategori = $kategoriParts[1];
-
-        // $validate['kategori'] = $kategori;
-        // $validate['sub_kategori'] = $subKategori;
-
-        // // dd($validate);
-        // $create = MasterDokumen::create($validate);
+        $dokumen->is_private = $req->get('is_private');        
         $dokumen->save();
 
         if($dokumen){
@@ -110,16 +121,15 @@ class DokumenController extends Controller
     {
         $user = Auth::user();
         $dokumen = MasterDokumen::findOrFail($id);
-        // $options = $this->options;
         $options = Kategori::all();
-        // dd($options);
         return view('dokumen.edit', compact('user', 'dokumen', 'options'));
     }
 
     public function update(CreateDokumenRequest $req, $id)
     {
-        $validate = $req->validate([
-            'id_prodi' => 'required',            
+        $user = Auth::user();
+
+        $validate = $req->validate([       
             'kategori' => 'required',            
             'nama_dokumen' => 'required',            
             'tautan' => 'required',            
@@ -127,7 +137,14 @@ class DokumenController extends Controller
 
         $dokumen = MasterDokumen::findOrFail($id);
         
-        $dokumen->id_produ = $req->get('id_produ');
+        if($user->id_role == 3){
+            $dokumen->id_prodi = 1;
+        }else if($user->id_role == 4){
+            $dokumen->id_prodi = 2;
+        }else if($user->id_role == 5){
+            $dokumen->id_prodi = 3;
+        }
+
         $dokumen->kategori = $req->get('kategori');
         $dokumen->sub_kategori = $req->get('sub_kategori');
         $dokumen->kriteria = $req->get('kriteria');

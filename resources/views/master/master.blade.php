@@ -179,7 +179,7 @@
 
                                                     @else
 
-                                                    @if ($user->id_role == 1 || $user->id_role == 3)
+                                                    @if ($user->id_role == 1 || $user->id_role == 3 || $user->id_role == 4 || $user->id_role == 5)
                                                     <li class="menu-item-has-children"><a href="#">Master</a>
                                                         <ul class="sub-menu">
                                                             <li>

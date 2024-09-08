@@ -22,7 +22,13 @@ class CreateRolesSeeder extends Seeder
                 'nama' => 'Dekan',
             ],
             [
-                'nama' => 'Prodi',
+                'nama' => 'Industri',
+            ],
+            [
+                'nama' => 'Informatika',
+            ],
+            [
+                'nama' => 'Sipil',
             ],
         ];
 
