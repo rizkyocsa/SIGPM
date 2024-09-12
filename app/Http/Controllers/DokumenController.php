@@ -82,7 +82,8 @@ class DokumenController extends Controller
         $validate = $req->validate([                     
             'kategori' => 'required',            
             'nama_dokumen' => 'required',            
-            'tautan' => 'required',            
+            'tautan' => 'required',    
+            'id_prodi' => 'nullable',        
         ]);
 
         $dokumen = new MasterDokumen;
@@ -135,6 +136,7 @@ class DokumenController extends Controller
             'kategori' => 'required',            
             'nama_dokumen' => 'required',            
             'tautan' => 'required',            
+            'id_prodi' => 'nullable',            
         ]);
 
         $dokumen = MasterDokumen::findOrFail($id);
