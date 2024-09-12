@@ -87,7 +87,9 @@ class DokumenController extends Controller
 
         $dokumen = new MasterDokumen;
         
-        if($user->id_role == 3){
+        if($user->id_role == 1){
+            $dokumen->id_prodi = $req->get('id_prodi');
+        }else if($user->id_role == 3){
             $dokumen->id_prodi = 1;
         }else if($user->id_role == 4){
             $dokumen->id_prodi = 2;
@@ -137,7 +139,9 @@ class DokumenController extends Controller
 
         $dokumen = MasterDokumen::findOrFail($id);
         
-        if($user->id_role == 3){
+        if($user->id_role == 1){
+            $dokumen->id_prodi = $req->get('id_prodi');
+        }else if($user->id_role == 3){
             $dokumen->id_prodi = 1;
         }else if($user->id_role == 4){
             $dokumen->id_prodi = 2;

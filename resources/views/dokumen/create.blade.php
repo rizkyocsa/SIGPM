@@ -18,7 +18,8 @@
                                     <form action="{{ route('dokumen.store')}}" method="POST"
                                         class="contact-page__form contact-form-validated">
                                         @csrf
-                                        <!-- <div class="row mb-4">
+                                        @if ($user->id_role == 1)
+                                        <div class="row mb-4">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <div class="contact-page__input-box">
                                                 <select name="id_prodi" style="width: 100%;" required>
@@ -29,7 +30,8 @@
                                                 </select>
                                                 </div>
                                             </div>
-                                        </div> -->
+                                        </div>
+                                        @endif
                                         <div class="row mb-4">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <div class="contact-page__input-box">
