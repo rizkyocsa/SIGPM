@@ -191,6 +191,7 @@ class DokumenController extends Controller
             $dokumen = DB::table('master_dokumens')
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')
                 ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
+                ->whereIn('master_dokumens.kategori', [1,2,3,4])
                 ->get();
                 // ->groupBy('id_prodi')
                 // ->groupBy('nama_kategori');

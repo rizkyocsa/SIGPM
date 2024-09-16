@@ -22,7 +22,7 @@
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                                 <div class="contact-page__input-box">
-                                                    <input type="file" placeholder="Foto Header" name="header" value="{{ $berita->header }}"  required>
+                                                    <input type="file" placeholder="Foto Header" name="header" value="{{ $berita->header }}">
                                                 </div>
                                             </div>
                                         </div>

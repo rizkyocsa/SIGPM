@@ -17,7 +17,7 @@ class CreateBeritasTable extends Migration
             $table->id();
             $table->string('header', 255);
             $table->string('judul', 50);
-            $table->text('content');
+            $table->longtext('content');
             $table->timestamps();
         });
     }

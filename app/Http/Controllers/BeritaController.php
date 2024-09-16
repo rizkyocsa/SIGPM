@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateBeritaRequest;
+use App\Http\Requests\UpdateBeritaRequest;
 use App\Models\Berita;
 Use Alert;
 
@@ -87,8 +88,10 @@ class BeritaController extends Controller
             $name = $filename;
         }
 
-        $validate = $req->validated();    
-        $validate['header'] = $name;        
+        $validate = $req->validated();   
+        if($name != ''){
+            $validate['header'] = $name;        
+        } 
         $update = $berita->update($validate);
 
         if($update){
