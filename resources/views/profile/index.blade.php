@@ -31,7 +31,7 @@
                                     <td>{{ $no++}}</td>
                                     <td>{{ $item->sub_menu }}</td>
                                     <td>{{ $item->judul }}</td>
-                                    <td>{{ $item->content }}</td>
+                                    <td>{!! $item->content !!}</td>
                                     <td>
                                         <a href="{{ route('profil.edit', $item->id)}}">
                                             <button class="btn btn-warning">Edit</button>
