@@ -185,8 +185,22 @@ class DokumenController extends Controller
     public function get_list($kategori)
     {
         $user = Auth::user();
+
+        $prodi = '';
+        if($user){
+            if($user->id_role == 3){
+                $prodi = 1;
+            }else if($user->id_role == 4){
+                $prodi = 2;
+            }else if($user->id_role == 5){
+                $prodi = 3;
+            }
+        }
+
         $dokumen = 0;
+        $dokumen_prodi = 0;
         $groupedDokumens = 0;
+
         if($kategori === "Dokumen"){
             $dokumen = DB::table('master_dokumens')
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')
@@ -195,6 +209,14 @@ class DokumenController extends Controller
                 ->get();
                 // ->groupBy('id_prodi')
                 // ->groupBy('nama_kategori');
+
+            $dokumen_prodi = DB::table('master_dokumens')
+                ->select('master_dokumens.*', 'kategoris.nama_kategori')
+                ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
+                ->whereIn('master_dokumens.kategori', [1,2,3,4])
+                ->where('id_prodi', $prodi)
+                ->get()
+                ->groupBy('nama_kategori');
 
             $groupedDokumens = $dokumen->groupBy('id_prodi')->map(function ($items) {
                 return $items->groupBy('nama_kategori');
@@ -205,27 +227,42 @@ class DokumenController extends Controller
                 ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
                 ->where('master_dokumens.kategori', 6)
                 ->get();
-                // ->groupBy('sub_kategori'); 
 
-                $groupedDokumens = $dokumen->groupBy('id_prodi')->map(function ($items) {
-                    return $items->groupBy('sub_kategori');
-                });   
+            $dokumen_prodi = DB::table('master_dokumens')
+                ->select('master_dokumens.*', 'kategoris.nama_kategori')
+                ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
+                ->where('master_dokumens.kategori', 6)
+                ->where('id_prodi', $prodi)
+                ->get()
+                ->groupBy('nama_kategori');
+
+            $groupedDokumens = $dokumen->groupBy('id_prodi')->map(function ($items) {
+                return $items->groupBy('sub_kategori');
+            });   
         }else if($kategori === "Laporan"){
             $dokumen = DB::table('master_dokumens')
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')
                 ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
                 ->where('master_dokumens.kategori', 5)
-                ->get();
-                // ->groupBy('sub_kategori'); 
-                $groupedDokumens = $dokumen->groupBy('id_prodi')->map(function ($items) {
-                    return $items->groupBy('sub_kategori');
-                });  
+                ->get(); 
+
+            $dokumen_prodi = DB::table('master_dokumens')
+                ->select('master_dokumens.*', 'kategoris.nama_kategori')
+                ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
+                ->where('master_dokumens.kategori', 5)
+                ->where('id_prodi', $prodi)
+                ->get()
+                ->groupBy('nama_kategori');
+
+            $groupedDokumens = $dokumen->groupBy('id_prodi')->map(function ($items) {
+                return $items->groupBy('sub_kategori');
+            });  
         }
         
-        // dd($kategori);
+        // dd($dokumen_prodi);
         // dd($dokumen);
         // dd($groupedDokumens);
-        return view('dokumen.list', compact('user','groupedDokumens'));
+        return view('dokumen.list', compact('user','groupedDokumens', 'dokumen_prodi'));
     }
 
     public function get_list_sub($sub_kategori)
