@@ -147,18 +147,43 @@ class AkreditasiController extends Controller
         
         ['title' => $title, 'subTitle' => $subTitle] = $this->_getTitleAndSubTitle($kategori);
 
-        // $akreditasi = Kriteria::where('kategori', $kategori)
-        //                 ->orderBy('elemen')
-        //                 ->orderBy('no_urut')
-        //                 ->get() 
-        //                 ->groupBy('elemen');       
-        $akreditasi = MasterDokumen::where('kriteria', $kategori)
+        $prodi = '';
+        
+        if($user){
+            if($user->id_role == 3){
+                $prodi = 1;
+            }else if($user->id_role == 4){
+                $prodi = 2;
+            }else if($user->id_role == 5){
+                $prodi = 3;
+            }
+        }
+
+        $akreditasi = '';
+        $akreditasi_prodi = '';
+        $groupedAkreditasis = '';
+
+        if($prodi !== ''){
+            $akreditasi_prodi = MasterDokumen::where('kriteria', $kategori)
                         ->orderBy('elemen')
-                        // ->orderBy('no_urut')
-                        ->get() 
-                        ->groupBy('elemen');       
-        // dd($kategori);
-        return view('akreditasi.detail', compact('user','akreditasi','title', 'subTitle'));
+                        ->where('id_prodi', $prodi)
+                        ->get()
+                        ->groupBy('elemen');
+        }else{
+            $akreditasi = MasterDokumen::where('kriteria', $kategori)
+                        ->orderBy('elemen')
+                        ->get() ;
+                        // ->groupBy('elemen');
+
+            $groupedAkreditasis = $akreditasi->groupBy('id_prodi')->map(function ($items) {
+                return $items->groupBy('elemen');
+            });
+        }
+
+        
+        // dd($akreditasi_prodi);
+        // dd($groupedAkreditasis);
+        return view('akreditasi.detail', compact('user','akreditasi','title', 'subTitle', 'groupedAkreditasis','akreditasi_prodi'));
     }
 
     public function getHighestNoUrut($kategori, $elemen)
