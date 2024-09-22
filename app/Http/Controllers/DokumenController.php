@@ -268,19 +268,40 @@ class DokumenController extends Controller
     public function get_list_sub($sub_kategori)
     {
         $user = Auth::user();
-        // $dokumen = MasterDokumen::where('sub_kategori', $sub_kategori)->get();
+        
+        $prodi = '';
+        if($user){
+            if($user->id_role == 3){
+                $prodi = 1;
+            }else if($user->id_role == 4){
+                $prodi = 2;
+            }else if($user->id_role == 5){
+                $prodi = 3;
+            }
+        }
+
+        $dokumen = 0;
+        $dokumen_prodi = 0;
+        $groupedDokumens = 0;
+
+        $dokumen_prodi = DB::table('master_dokumens')
+                ->select('master_dokumens.*', 'kategoris.nama_kategori')
+                ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
+                ->where('kategori', $sub_kategori)
+                ->where('id_prodi', $prodi)
+                ->get();
+
         $dokumen = DB::table('master_dokumens')
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')
                 ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
                 ->where('kategori', $sub_kategori)
                 ->get();
-        $sub_kategori = DB::table('master_dokumens')
-                ->select('master_dokumens.*', 'kategoris.nama_kategori')
-                ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
-                ->where('kategori', $sub_kategori)
-                ->first();
-                // ->groupBy('kategori');
-        // dd($sub_kategori);
-        return view('dokumen.list-sub', compact('user','dokumen', 'sub_kategori'));
+
+        $groupedDokumens = $dokumen->groupBy('id_prodi')->map(function ($items) {
+            return $items;
+        });  
+        // dd($dokumen_prodi);
+        // dd($groupedDokumens);    
+        return view('dokumen.list-sub', compact('user','dokumen', 'groupedDokumens', 'dokumen_prodi'));
     }
 }

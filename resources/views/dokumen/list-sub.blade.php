@@ -11,25 +11,43 @@
                     <div class="contact-page__bottom-form">
                         <div class="container">
                             <div class="contact-page__bottom-form-inner">
-                                    <h4 style="margin-bottom: 10px;">{{ isset($sub_kategori->nama_kategori) ? $sub_kategori->nama_kategori  : '' }}</h4>
-                                    <ul>
-                                        @foreach($dokumen as $record)
+                                @if((isset($user->id_role)) && ($user->id_role == 3 || $user->id_role == 4 || $user->id_role == 5))
+                                    @foreach($dokumen_prodi as $dokumen)
                                         <li style="margin-left: 20px;">
                                             @guest
-                                                {{ $record->nama_dokumen }} 
+                                                {{ $dokumen->nama_dokumen }} 
                                             @else
-
-                                                @if($user->id_role == 2)
-                                                    <a href="{{ $record->tautan }}" target="_blank">{{ $record->nama_dokumen }}</a>
+                                                @if(isset($user->id_role) && $user->id_role == 2)
+                                                    <a href="{{ $dokumen->tautan }}" target="_blank">{{ $dokumen->nama_dokumen }}</a>
                                                 @else
-                                                    {{ $record->nama_dokumen }} 
+                                                    {{ $dokumen->nama_dokumen }} 
                                                 @endif
                                             @endguest
-
                                             </li>
+                                    @endforeach
+                                @else
+                                    <ul>
+                                        @foreach($groupedDokumens as $idProdi => $datas)
+                                            @if($idProdi == 1)
+                                                <h3>Teknik Industri</h3>
+                                            @elseif($idProdi == 2)
+                                                <h3>Teknik Informatika</h3>
+                                            @elseif($idProdi == 3)
+                                                <h3>Teknik Sipil</h3>
+                                            @endif
+                                                @foreach($datas as $data)
+                                                    @if(isset($user->id_role) && $user->id_role == 2)
+                                                        <li>
+                                                            <a href="{{ $data->tautan }}" target="_blank" style="margin-left: 50px;">{{ $data->nama_dokumen }}</a>
+                                                        </li>
+                                                    @else
+                                                        <li style="margin-left: 50px;"> {{ $data->nama_dokumen }}</li>
+                                                    @endif
+                                                @endforeach
                                         @endforeach
                                     </ul>
                                     <br>
+                                @endif
                             </div>
                         </div>
                     </div>
