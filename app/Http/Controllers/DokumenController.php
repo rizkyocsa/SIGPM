@@ -206,6 +206,7 @@ class DokumenController extends Controller
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')
                 ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
                 ->whereIn('master_dokumens.kategori', [1,2,3,4])
+                ->where('is_private', 0)
                 ->get();
                 // ->groupBy('id_prodi')
                 // ->groupBy('nama_kategori');
@@ -226,6 +227,7 @@ class DokumenController extends Controller
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')
                 ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
                 ->where('master_dokumens.kategori', 6)
+                ->where('is_private', 0)
                 ->get();
 
             $dokumen_prodi = DB::table('master_dokumens')
@@ -244,6 +246,7 @@ class DokumenController extends Controller
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')
                 ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
                 ->where('master_dokumens.kategori', 5)
+                ->where('is_private', 0)
                 ->get(); 
 
             $dokumen_prodi = DB::table('master_dokumens')
@@ -295,6 +298,7 @@ class DokumenController extends Controller
                 ->select('master_dokumens.*', 'kategoris.nama_kategori')
                 ->join('kategoris', 'master_dokumens.kategori', '=', 'kategoris.id')
                 ->where('kategori', $sub_kategori)
+                ->where('is_private', 0)
                 ->get();
 
         $groupedDokumens = $dokumen->groupBy('id_prodi')->map(function ($items) {
