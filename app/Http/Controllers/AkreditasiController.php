@@ -171,6 +171,7 @@ class AkreditasiController extends Controller
                         ->groupBy('elemen');
         }else{
             $akreditasi = MasterDokumen::where('kriteria', $kategori)
+                        ->where('is_private', 0)
                         ->orderBy('elemen')
                         ->get() ;
                         // ->groupBy('elemen');
