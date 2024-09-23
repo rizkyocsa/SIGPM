@@ -18,7 +18,7 @@
                                             <h4 style="margin-bottom: 10px;">
                                                 <!-- {{ $subKategori }} -->
                                                 @if($subKategori == 1)
-                                                    Penetepatan
+                                                    Penetapan 
                                                 @elseif($subKategori == 2)
                                                     Pelaksanaan
                                                 @elseif($subKategori == 3)
@@ -55,7 +55,7 @@
                                             @foreach($kategoris as $namaKategori => $dokumens)
                                                 <h4 style="margin-left: 30px;">
                                                     @if($namaKategori == 1)
-                                                        Penetepatan
+                                                        Penetapan 
                                                     @elseif($namaKategori == 2)
                                                         Pelaksanaan
                                                     @elseif($namaKategori == 3)
